@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur shadow-sm px-6 py-4 flex justify-between items-center">
-      <div className="text-2xl font-bold">Maulana</div>
+    <nav className="sticky top-0 z-50 backdrop-blur shadow-sm px-14 py-4 flex justify-between items-center">
+      <div className="text-3xl font-bold text-gray-400 hover:text-white cursor-pointer">
+        Dany
+      </div>
       <ul className="flex space-x-6 font-medium text-gray-400">
         <li>
           <Link
@@ -16,18 +18,18 @@ const Navbar: React.FC = () => {
         </li>
         <li>
           <Link
-            to="/projects"
+            to="/experiences"
             className="hover:text-white transition-colors duration-200"
           >
-            Projects
+            Experiences
           </Link>
         </li>
         <li>
           <Link
-            to="/about"
+            to="/education"
             className="hover:text-white transition-colors duration-200"
           >
-            About
+            Educations
           </Link>
         </li>
         <li>
