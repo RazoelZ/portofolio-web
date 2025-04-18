@@ -10,7 +10,7 @@ import {
 
 const AboutMeComponent: React.FC = () => {
   return (
-    <section id="about" className="min-h-screen px-6 md:px-16 py-20 ">
+    <section id="about" className="min-h-screen px-6 md:px-16 pt-25 ">
       <div className="max-w-6xl mx-auto">
         <p className="text-md font-semibold mb-2">Services</p>
         <h2 className="text-blue-500 text-4xl font-bold mb-10">
@@ -78,6 +78,15 @@ const AboutMeComponent: React.FC = () => {
             <p className="text-2xl font-bold">1000+</p>
             <span>Hours Coded</span>
           </div>
+        </div>
+
+        <div className="mt-12 flex justify-center md:justify-start animate-bounce">
+          <a
+            href="#top"
+            className="text-gray-400 hover:text-blue-400 transition text-lg"
+          >
+            ↑ Back to Top
+          </a>
         </div>
       </div>
     </section>

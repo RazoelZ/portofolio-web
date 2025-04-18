@@ -18,7 +18,12 @@ const HeroComponent: React.FC = () => {
           Hi, I’m{" "}
           <span className="text-blue-500 font-semibold">
             <Typewriter
-              words={["Dany", "a Front-End Developer", "Consulting Enthusiast"]}
+              words={[
+                "Dany",
+                "Razoel",
+                "a Front-End Developer",
+                "Consulting Enthusiast",
+              ]}
               loop={true}
               cursor
               cursorStyle="_"
@@ -84,14 +89,14 @@ const HeroComponent: React.FC = () => {
         </div>
 
         {/* ↓ Scroll Down Hint */}
-        {/* <div className="mt-12 flex justify-center md:justify-start animate-bounce">
+        <div className="mt-12 flex justify-center md:justify-start animate-bounce">
           <a
             href="#about"
-            className="text-gray-400 hover:text-blue-400 transition"
+            className="text-gray-400 hover:text-blue-400 transition text-lg"
           >
             ↓ Scroll Down
           </a>
-        </div> */}
+        </div>
       </div>
     </section>
   );

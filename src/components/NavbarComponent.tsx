@@ -34,10 +34,10 @@ const Navbar: React.FC = () => {
         </li>
         <li>
           <Link
-            to="/contact"
+            to="/faq"
             className="hover:text-white transition-colors duration-200"
           >
-            Contact
+            Frequently Asked Questions
           </Link>
         </li>
       </ul>

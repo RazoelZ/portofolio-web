@@ -4,10 +4,10 @@ import AboutMeComponent from "../components/AboutMeComponent";
 
 const IndexPortofolioScreen: React.FC = () => {
   return (
-    <>
+    <div id="top">
       <HeroComponent />
       <AboutMeComponent />
-    </>
+    </div>
   );
 };
 
