@@ -26,11 +26,20 @@ const experiences = [
 
 const ExperienceComponent: React.FC = () => {
   return (
-    <section className="mb-20">
-      <h2 className="relative text-3xl font-bold mb-10 inline-flex items-center gap-2 text-white after:content-[''] after:absolute after:left-0 after:-bottom-2 after:h-[3px] after:w-0 after:bg-indigo-500 after:transition-all after:duration-300 hover:after:w-full">
-        <span className="text-4xl">💼</span> Experience
-      </h2>
+    <section className="my-20 px-6 md:px-16 max-w-6xl mx-auto">
+      {/* Header */}
+      <div className="mb-12">
+        <h2 className="text-sm text-gray-400 mb-1">(02)</h2>
+        <h3 className="text-4xl italic font-semibold text-white mb-3">
+          Experience
+        </h3>
+        <p className="text-sm text-gray-400 border-t border-gray-600 pt-3">
+          Here are the professional roles I've held — delivering frontend
+          solutions across consulting, public sector, and fast-moving startups.
+        </p>
+      </div>
 
+      {/* Experience Cards */}
       <div className="space-y-6">
         {experiences.map((exp, index) => (
           <div
@@ -49,6 +58,14 @@ const ExperienceComponent: React.FC = () => {
             <p className="text-gray-300 text-sm">{exp.description}</p>
           </div>
         ))}
+      </div>
+      <div className="w-full mt-12 flex justify-center md:justify-end animate-bounce">
+        <a
+          href="#projects"
+          className="text-gray-400 hover:text-blue-400 transition text-lg"
+        >
+          ↓ Scroll Down
+        </a>
       </div>
     </section>
   );

@@ -35,12 +35,22 @@ const projects = [
 
 const ProjectComponent: React.FC = () => {
   return (
-    <section className="mb-20">
-      <h2 className="relative text-3xl font-bold mb-10 inline-flex items-center gap-2 text-white after:content-[''] after:absolute after:left-0 after:-bottom-2 after:h-[3px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 hover:after:w-full">
-        <span className="text-4xl">🚀</span> Projects
-      </h2>
+    <section id="projects" className="py-25 px-6 md:px-16 max-w-6xl mx-auto">
+      {/* Section Header */}
+      <div className="mb-5">
+        <h2 className="text-sm text-gray-400 mb-1">(03)</h2>
+        <h3 className="text-4xl italic font-semibold text-white mb-3">
+          Projects
+        </h3>
+        <p className="text-sm text-gray-400 border-t border-gray-600 pt-3">
+          A selection of projects I've contributed to, including production
+          systems, company profiles, and mobile applications — each built with
+          scalable and modern tech stacks.
+        </p>
+      </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      {/* Project Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-2">
         {projects.map((project, index) => (
           <div
             key={index}
@@ -49,7 +59,7 @@ const ProjectComponent: React.FC = () => {
             <h4 className="text-xl font-semibold text-blue-400 mb-2">
               {project.title}
             </h4>
-            <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
+            <p className="text-gray-300 mb-4 text-sm">{project.description}</p>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((tech, i) => (
                 <span
@@ -62,6 +72,14 @@ const ProjectComponent: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="mt-12 flex justify-center md:justify-end animate-bounce">
+        <a
+          href="#top"
+          className="text-gray-400 hover:text-blue-400 transition text-lg"
+        >
+          ↑ Back to Top
+        </a>
       </div>
     </section>
   );

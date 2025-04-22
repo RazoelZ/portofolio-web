@@ -4,10 +4,10 @@ import ExperienceComponent from "../components/ExperienceComponents";
 
 const IndexExperienceScreen: React.FC = () => {
   return (
-    <section className="min-h-screen px-6 md:px-16 py-20 text-white">
+    <div id="experience">
       <ExperienceComponent />
       <ProjectComponent />
-    </section>
+    </div>
   );
 };
 

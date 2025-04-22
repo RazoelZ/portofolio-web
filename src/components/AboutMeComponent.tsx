@@ -12,15 +12,15 @@ const AboutMeComponent: React.FC = () => {
   return (
     <section id="about" className="min-h-screen px-6 md:px-16 pt-25 ">
       <div className="max-w-6xl mx-auto">
-        <p className="text-md font-semibold mb-2">Services</p>
-        <h2 className="text-blue-500 text-4xl font-bold mb-10">
+        <h2 className="text-sm text-gray-400 mb-1">(02)</h2>
+        <h2 className="text-white text-4xl font-bold mb-10 italic border-b border-gray-600 pb-3">
           What I Bring to the Table
         </h2>
 
         {/* Skills / Services Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-10">
           {/* Tech Stack */}
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl shadow-md">
+          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl">
             <Code2 className="text-blue-500 w-8 h-8 mb-4" />
             <h3 className="text-blue-500 text-xl font-semibold mb-2">
               Frontend Tech Stack
@@ -32,7 +32,7 @@ const AboutMeComponent: React.FC = () => {
           </div>
 
           {/* Hard Skills */}
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl shadow-md">
+          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl">
             <MonitorSmartphone className="text-blue-500 w-8 h-8 mb-4" />
             <h3 className="text-blue-500 text-xl font-semibold mb-2">
               Hard Skills
@@ -44,7 +44,7 @@ const AboutMeComponent: React.FC = () => {
           </div>
 
           {/* Soft Skills */}
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl shadow-md">
+          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl">
             <Brain className="text-blue-500 w-8 h-8 mb-4" />
             <h3 className="text-blue-500 text-xl font-semibold mb-2">
               Soft Skills
@@ -57,23 +57,23 @@ const AboutMeComponent: React.FC = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid md:grid-cols-4 gap-8 text-center text-sm font-medium text-gray-700">
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl shadow-md">
+        <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center text-sm font-medium text-gray-700">
+          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl ">
             <BadgeCheck className="mx-auto mb-2 text-blue-500 w-14 h-14" />
             <p className="text-2xl text-gray-400 font-bold">1.5+</p>
             <span className="text-gray-400">Years Experience</span>
           </div>
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl shadow-md">
+          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl ">
             <Puzzle className="mx-auto mb-2 text-green-500 w-14 h-14" />
             <p className="text-2xl text-gray-400 font-bold">5+</p>
             <span className="text-gray-400">Completed Projects</span>
           </div>
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl shadow-md">
+          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl ">
             <Users className="mx-auto mb-2 text-orange-500 w-14 h-14" />
             <p className="text-2xl text-gray-400 font-bold">3</p>
             <span className="text-gray-400">Clients / Teams</span>
           </div>
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl shadow-md">
+          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl ">
             <Code2 className="mx-auto mb-2 text-sky-500 w-14 h-14" />
             <p className="text-2xl text-gray-400 font-bold">1000+</p>
             <span className="text-gray-400">Hours Coded</span>
