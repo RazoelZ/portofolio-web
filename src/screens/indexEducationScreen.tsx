@@ -1,7 +1,7 @@
 import React from "react";
 import EducationComponent from "../components/EducationComponents";
 import CertificationComponent from "../components/CertificationComponent";
-import OrganizationComponent from "../components/OrganizationComponents";
+// import OrganizationComponent from "../components/OrganizationComponents";
 
 const indexEducationScreen: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const indexEducationScreen: React.FC = () => {
       <CertificationComponent />
 
       {/* 🏢 Organization */}
-      <OrganizationComponent />
+      {/* <OrganizationComponent /> */}
     </section>
   );
 };

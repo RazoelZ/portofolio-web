@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
     { name: "Home", to: "/" },
     { name: "Experience", to: "/experiences" },
     { name: "Education", to: "/education" },
-    { name: "          Frequently Asked Questions", to: "/faq" },
+    { name: "Frequently Asked Questions", to: "/faq" },
     // { name: "Skills", to: "/skills" },
     // { name: "Portfolio", to: "/portfolio" },
     // { name: "Cover Letter", to: "/cover-letter" },
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white text-xl"
+          className="md:hidden text-white text-xl cursor-pointer"
         >
           {isOpen ? <FiX /> : <FiMenu />}
         </button>
@@ -58,12 +58,12 @@ const Navbar: React.FC = () => {
 
       {/* Sticky Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden sticky top-[64px] z-50 bg-[#0e1116]/90 px-6 pb-4 space-y-3 shadow-md backdrop-blur-md transition-all duration-300">
+        <div className="md:hidden sticky top-[64px] px-6 pb-4 space-y-3 shadow-md transition-all duration-300">
           {menuItems.map(({ name, to }) => (
             <Link
               key={name}
               to={to}
-              className="block text-sm text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded transition"
+              className="block text-sm text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded transition cursor-pointer"
               onClick={() => setIsOpen(false)}
             >
               {name}
