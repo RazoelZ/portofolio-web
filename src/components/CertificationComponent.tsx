@@ -120,7 +120,7 @@ const CertificationComponent: React.FC = () => {
       className="py-30 px-6 md:px-16 max-w-6xl mx-auto"
     >
       {/* Header */}
-      <div className="w-full mb-12">
+      <div className="w-full mb-3">
         <h2 className="text-sm text-gray-400 mb-1">(05)</h2>
         <h3 className="text-4xl italic font-semibold text-white mb-4">
           Certifications
@@ -156,13 +156,13 @@ const CertificationComponent: React.FC = () => {
         onClose={() => setShowDialog(false)}
         title="All Certifications"
       >
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-4 px-4">
           {allCerts.map((cert, i) => renderCertCard(cert, i))}
         </div>
       </DialogComponent>
 
       {/* Back to Top */}
-      <div className="mt-12 flex justify-center md:justify-end animate-bounce">
+      <div className="mt-8 flex justify-center md:justify-end animate-bounce">
         <a
           href="#top"
           className="text-gray-400 hover:text-blue-400 transition text-lg"

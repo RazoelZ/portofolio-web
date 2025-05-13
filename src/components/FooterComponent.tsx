@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         </p>
         <div className="flex space-x-4">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/RazoelZ"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-black transition"
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/danydarmawan"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-black transition"
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
             LinkedIn
           </a>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:danydarmawannn@gmail.com "
             className="hover:text-black transition"
           >
             Email

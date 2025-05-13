@@ -8,6 +8,7 @@ import IndexEducationScreen from "./screens/indexEducationScreen";
 import IndexFAQScreen from "./screens/indexFAQScreen";
 import LoaderComponent from "./components/LoaderComponent";
 import { useEffect, useState } from "react";
+import { useAnimatedTitle } from "./Hooks/useAnimatedTitle";
 
 function App() {
   const location = useLocation();
@@ -23,6 +24,8 @@ function App() {
 
     return () => clearTimeout(timeout);
   }, [location]);
+
+  useAnimatedTitle("👋 Welcome to Dany's Portfolio", 200);
 
   return (
     <>
