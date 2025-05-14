@@ -1,21 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EducationComponent from "../components/EducationComponents";
 import CertificationComponent from "../components/CertificationComponent";
 // import OrganizationComponent from "../components/OrganizationComponents";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, EffectFade } from "swiper/modules";
 
-const indexEducationScreen: React.FC = () => {
+// Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
+
+const IndexEducationScreen: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Function to check screen size
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Run on mount
+    window.addEventListener("resize", handleResize); // Re-run on resize
+
+    return () => window.removeEventListener("resize", handleResize); // Cleanup
+  }, []);
+
+  if (isMobile) {
+    // Render components stacked for mobile
+    return (
+      <div className="flex flex-col gap-6 px-4 py-6">
+        <EducationComponent />
+        <CertificationComponent />
+      </div>
+    );
+  }
+
+  // Render Swiper carousel for desktop/tablet
   return (
-    <section className="min-h-screen px-6 md:px-16 py-20 text-white">
-      {/* 🎓 Education */}
-      <EducationComponent />
-
-      {/* 📜 Certifications */}
-      <CertificationComponent />
-
-      {/* 🏢 Organization */}
-      {/* <OrganizationComponent /> */}
-    </section>
+    <Swiper
+      modules={[Pagination, Navigation, EffectFade]}
+      spaceBetween={50}
+      slidesPerView={1}
+      pagination={{
+        type: "bullets",
+      }}
+      navigation
+      effect="fade"
+      className="h-full"
+    >
+      <SwiperSlide>
+        <EducationComponent />
+      </SwiperSlide>
+      <SwiperSlide>
+        <CertificationComponent />
+      </SwiperSlide>
+    </Swiper>
   );
 };
 
-export default indexEducationScreen;
+export default IndexEducationScreen;

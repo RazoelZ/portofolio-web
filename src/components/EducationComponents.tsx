@@ -2,14 +2,14 @@ import React from "react";
 
 const EducationComponent: React.FC = () => {
   return (
-    <section className="mb-20 px-6 md:px-16 max-w-6xl mx-auto">
+    <section className="px-6 md:px-16 max-w-6xl mx-auto bg-[#121212] md:pt-30">
       {/* Section Heading */}
       <div className="mb-10">
         <h2 className="text-sm text-gray-400 mb-1">(04)</h2>
         <h3 className="text-4xl italic font-semibold text-white mb-3">
           Education
         </h3>
-        <p className="text-sm text-gray-400 border-t border-gray-600 pt-3">
+        <p className="text-sm md:text-lg text-gray-400 border-t border-gray-600 pt-3">
           I hold a Bachelor's Degree in Informatics from Diponegoro University,
           where I graduated with a strong academic record and a GPA of 3.80 out
           of 4.00. Throughout my studies, I developed a solid foundation in
@@ -58,14 +58,14 @@ const EducationComponent: React.FC = () => {
           Information Systems, Software Architecture, Software Quality.
         </p>
       </div>
-      <div className="w-full mt-12 flex justify-center md:justify-end animate-bounce">
+      {/* <div className="w-full mt-12 flex justify-center md:justify-end animate-bounce">
         <a
           href="#certificates"
           className="text-gray-400 hover:text-blue-400 transition text-lg"
         >
           ↓ Scroll Down
         </a>
-      </div>
+      </div> */}
     </section>
   );
 };

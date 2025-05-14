@@ -10,7 +10,10 @@ import {
 
 const AboutMeComponent: React.FC = () => {
   return (
-    <section id="about" className="min-h-screen px-6 md:px-16 pt-25 ">
+    <section
+      id="about"
+      className="min-h-screen px-6 md:px-16 pt-20 bg-[#121212] md:pt-30"
+    >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-sm text-gray-400 mb-1">(02)</h2>
         <h2 className="text-white text-4xl font-bold mb-10 italic border-b border-gray-600 pb-3">
@@ -57,7 +60,7 @@ const AboutMeComponent: React.FC = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center text-sm font-medium text-gray-700">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-sm font-medium text-gray-700">
           <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl ">
             <BadgeCheck className="mx-auto mb-2 text-blue-500 w-14 h-14" />
             <p className="text-2xl text-gray-400 font-bold">1.5+</p>
@@ -78,15 +81,6 @@ const AboutMeComponent: React.FC = () => {
             <p className="text-2xl text-gray-400 font-bold">1000+</p>
             <span className="text-gray-400">Hours Coded</span>
           </div>
-        </div>
-
-        <div className="mt-12 flex justify-center md:justify-start animate-bounce">
-          <a
-            href="#top"
-            className="text-gray-400 hover:text-blue-400 transition text-lg"
-          >
-            ↑ Back to Top
-          </a>
         </div>
       </div>
     </section>

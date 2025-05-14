@@ -35,7 +35,10 @@ const projects = [
 
 const ProjectComponent: React.FC = () => {
   return (
-    <section id="projects" className="py-25 px-6 md:px-16 max-w-6xl mx-auto">
+    <section
+      id="projects"
+      className="py-25 px-6 md:px-16 max-w-6xl mx-auto bg-[#121212]"
+    >
       {/* Section Header */}
       <div className="mb-5">
         <h2 className="text-sm text-gray-400 mb-1">(03)</h2>
@@ -73,14 +76,14 @@ const ProjectComponent: React.FC = () => {
           </div>
         ))}
       </div>
-      <div className="mt-12 flex justify-center md:justify-end animate-bounce">
+      {/* <div className="mt-12 flex justify-center md:justify-end animate-bounce">
         <a
           href="#top"
           className="text-gray-400 hover:text-blue-400 transition text-lg"
         >
           ↑ Back to Top
         </a>
-      </div>
+      </div> */}
     </section>
   );
 };

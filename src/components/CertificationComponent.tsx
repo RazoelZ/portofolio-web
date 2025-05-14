@@ -80,7 +80,7 @@ const CertificationComponent: React.FC = () => {
   const renderCertCard = (cert: (typeof allCerts)[number], key: React.Key) => (
     <div
       key={key}
-      className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] border border-zinc-800 p-5 rounded-xl shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
+      className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] border border-zinc-800 p-5 rounded-xl shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] "
     >
       <div className="mb-2 flex justify-between items-start">
         <h4 className="text-white font-semibold text-md">{cert.title}</h4>
@@ -117,7 +117,7 @@ const CertificationComponent: React.FC = () => {
   return (
     <section
       id="certificates"
-      className="py-30 px-6 md:px-16 max-w-6xl mx-auto"
+      className="py-22 px-6 md:px-16 max-w-6xl mx-auto bg-[#121212]"
     >
       {/* Header */}
       <div className="w-full mb-3">
@@ -162,14 +162,14 @@ const CertificationComponent: React.FC = () => {
       </DialogComponent>
 
       {/* Back to Top */}
-      <div className="mt-8 flex justify-center md:justify-end animate-bounce">
+      {/* <div className="mt-8 flex justify-center md:justify-end animate-bounce">
         <a
           href="#top"
           className="text-gray-400 hover:text-blue-400 transition text-lg"
         >
           ↑ Back to Top
         </a>
-      </div>
+      </div> */}
     </section>
   );
 };

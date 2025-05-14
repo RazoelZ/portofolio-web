@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/NavbarComponent";
-import Footer from "./components/FooterComponent";
+// import Footer from "./components/FooterComponent";
 import IndexPortofolioScreen from "./screens/IndexPortofolioScreen";
 import IndexExperienceScreen from "./screens/indexExperienceScreen";
 import IndexEducationScreen from "./screens/indexEducationScreen";
@@ -37,7 +37,7 @@ function App() {
         <Route path="/education" element={<IndexEducationScreen />} />
         <Route path="/faq" element={<IndexFAQScreen />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

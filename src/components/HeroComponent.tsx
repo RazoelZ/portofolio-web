@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const HeroComponent: React.FC = () => {
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between gap-10 px-6 md:px-16 py-20 bg-[#242424] text-white">
+    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between gap-10 px-6 md:px-16 bg-[#121212] text-white">
       {/* 👤 Profile Animation */}
       <div className="w-full md:w-1/2 flex justify-center">
         <Lottie animationData={heroAnimation} loop className="w-96 h-96" />
@@ -89,14 +89,14 @@ const HeroComponent: React.FC = () => {
         </div>
 
         {/* ↓ Scroll Down Hint */}
-        <div className="mt-12 flex justify-center md:justify-start animate-bounce">
+        {/* <div className="mt-12 flex justify-center md:justify-start animate-bounce">
           <a
             href="#about"
             className="text-gray-400 hover:text-blue-400 transition text-lg"
           >
             ↓ Scroll Down
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

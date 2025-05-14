@@ -26,7 +26,7 @@ const experiences = [
 
 const ExperienceComponent: React.FC = () => {
   return (
-    <section className="my-20 px-6 md:px-16 max-w-6xl mx-auto">
+    <section className="my-20 px-6 md:px-16 max-w-6xl mx-auto md:pt-5 bg-[#121212]">
       {/* Header */}
       <div className="mb-12">
         <h2 className="text-sm text-gray-400 mb-1">(02)</h2>
@@ -59,14 +59,14 @@ const ExperienceComponent: React.FC = () => {
           </div>
         ))}
       </div>
-      <div className="w-full mt-12 flex justify-center md:justify-end animate-bounce">
+      {/* <div className="w-full mt-12 flex justify-center md:justify-end animate-bounce">
         <a
           href="#projects"
           className="text-gray-400 hover:text-blue-400 transition text-lg"
         >
           ↓ Scroll Down
         </a>
-      </div>
+      </div> */}
     </section>
   );
 };

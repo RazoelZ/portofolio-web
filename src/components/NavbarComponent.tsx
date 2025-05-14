@@ -1,74 +1,185 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  FiMenu,
+  FiX,
+  FiHome,
+  FiBriefcase,
+  FiBookOpen,
+  FiHelpCircle,
+  FiMoon,
+  FiSun,
+} from "react-icons/fi";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+  const location = useLocation();
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
 
   const menuItems = [
-    { name: "Home", to: "/" },
-    { name: "Experience", to: "/experiences" },
-    { name: "Education", to: "/education" },
-    { name: "Frequently Asked Questions", to: "/faq" },
-    // { name: "Skills", to: "/skills" },
-    // { name: "Portfolio", to: "/portfolio" },
-    // { name: "Cover Letter", to: "/cover-letter" },
+    { name: "Home", to: "/", icon: <FiHome /> },
+    { name: "Experience", to: "/experiences", icon: <FiBriefcase /> },
+    { name: "Education", to: "/education", icon: <FiBookOpen /> },
+    { name: "FAQ", to: "/faq", icon: <FiHelpCircle /> },
+  ];
+
+  const socialItems = [
+    {
+      name: "GitHub",
+      icon: <FaGithub />,
+      href: "https://github.com/RazoelZ",
+    },
+    {
+      name: "LinkedIn",
+      icon: <FaLinkedin />,
+      href: "https://linkedin.com/in/danydarmawan",
+    },
+    {
+      name: "Email",
+      icon: <FaEnvelope />,
+      href: "mailto:danydarmawannn@gmail.com",
+    },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#0e1116]/90 text-white shadow-md">
-      <div className="max-w-8xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
-        {/* Left: Logo */}
-        <div className="flex items-center gap-3">
+    <nav className="fixed top-0 left-0 right-0 w-full z-50 text-gray-800 dark:text-white transition-colors">
+      <div className="max-w-7xl mx-auto px-4 md:px-10 py-5 flex justify-between items-center relative">
+        {/* Left - Menu */}
+        <ul className="hidden md:flex gap-6 text-3xl items-center">
+          {menuItems.map(({ name, to, icon }) => {
+            const isActive = location.pathname === to;
+            return (
+              <li key={name} className="group relative">
+                <Link
+                  to={to}
+                  className={`transition ${
+                    isActive
+                      ? "text-blue-400 border-b-2 border-blue-400 pb-1"
+                      : "hover:text-blue-400"
+                  }`}
+                >
+                  {icon}
+                </Link>
+                <span
+                  className="absolute top-full mt-1 left-1/2 transform -translate-x-1/2 scale-0 
+                  group-hover:scale-100 transition-all duration-150 bg-gray-800 text-xs px-2 py-1 
+                  rounded shadow-lg text-white whitespace-nowrap md:text-xl"
+                >
+                  {name}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* Center - Logo */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2 cursor-pointer">
           <img
             src="/icon.png"
             alt="Avatar"
-            className="w-10 h-10 rounded-full object-cover border border-gray-500"
+            className="w-9 h-9 rounded-full object-cover border border-gray-500"
           />
-          <div>
-            <h1 className="text-white text-sm font-semibold leading-tight">
-              Dany Darmawan
-            </h1>
-            <p className="text-xs text-gray-400">Frontend Developer</p>
-          </div>
         </div>
 
-        {/* Center: Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-6 text-sm font-medium">
-          {menuItems.map(({ name, to }) => (
-            <li key={name}>
-              <Link
-                to={to}
-                className="text-gray-300 hover:text-white transition"
+        {/* Right - Icons */}
+        <div className="hidden md:flex items-center gap-5 text-3xl">
+          {socialItems.map(({ name, icon, href }) => (
+            <a
+              key={name}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative hover:text-blue-400 transition"
+            >
+              {icon}
+              <span
+                className="absolute top-full mt-1 left-1/2 transform -translate-x-1/2 
+                scale-0 group-hover:scale-100 transition-all duration-150 bg-gray-800 text-xs 
+                px-2 py-1 rounded shadow-lg text-white whitespace-nowrap md:text-xl"
               >
                 {name}
-              </Link>
-            </li>
+              </span>
+            </a>
           ))}
-        </ul>
+          <button
+            onClick={() => setIsDark(!isDark)}
+            className="hover:text-yellow-400 transition cursor-pointer"
+          >
+            {isDark ? <FiSun /> : <FiMoon />}
+          </button>
+        </div>
 
         {/* Mobile Toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white text-xl cursor-pointer"
-        >
-          {isOpen ? <FiX /> : <FiMenu />}
+        <button onClick={() => setIsOpen(true)} className="md:hidden text-2xl">
+          <FiMenu />
         </button>
       </div>
 
-      {/* Sticky Mobile Dropdown */}
+      {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden sticky top-[64px] px-6 pb-4 space-y-3 shadow-md transition-all duration-300">
-          {menuItems.map(({ name, to }) => (
-            <Link
-              key={name}
-              to={to}
-              className="block text-sm text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded transition cursor-pointer"
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex flex-col">
+          <div className="flex justify-end p-6">
+            <button
               onClick={() => setIsOpen(false)}
+              className="text-white text-3xl"
             >
-              {name}
-            </Link>
-          ))}
+              <FiX />
+            </button>
+          </div>
+          <div className="flex-1 flex flex-col items-center justify-center gap-6 text-white text-xl">
+            {menuItems.map(({ name, to, icon }) => (
+              <Link
+                key={name}
+                to={to}
+                className={`flex items-center gap-3 transition text-2xl ${
+                  location.pathname === to
+                    ? "text-blue-400"
+                    : "hover:text-blue-400"
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {icon}
+                <span>{name}</span>
+              </Link>
+            ))}
+
+            <div className="flex gap-6 pt-6 text-2xl border-t border-gray-700 mt-4">
+              {socialItems.map(({ name, icon, href }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition"
+                >
+                  {icon}
+                </a>
+              ))}
+              <button
+                onClick={() => {
+                  setIsDark(!isDark);
+                  setIsOpen(false);
+                }}
+                className="hover:text-yellow-400 transition"
+              >
+                {isDark ? <FiSun /> : <FiMoon />}
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </nav>
