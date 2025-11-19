@@ -1,72 +1,62 @@
 import React from "react";
-
-const experiences = [
-  {
-    role: "Associate Assistant",
-    company: "PwC Indonesia",
-    period: "2024 – Present",
-    description:
-      "Supporting tech consulting projects, developing internal dashboards, and maintaining frontend consistency across clients' web platforms.",
-  },
-  {
-    role: "Frontend Developer",
-    company: "Ministry of Maritime Affairs and Fisheries",
-    period: "2023 – 2024",
-    description:
-      "Built and maintained licensing dashboards with React, enhanced PDF previewing, and integrated data handling with Laravel APIs.",
-  },
-  {
-    role: "Frontend Intern",
-    company: "Haus! Indonesia",
-    period: "2023",
-    description:
-      "Developed a responsive company profile site using React and Tailwind. Delivered high-quality UI under tight deadlines.",
-  },
-];
+import { experiencesData } from "../Data/ExperienceData";
 
 const ExperienceComponent: React.FC = () => {
   return (
-    <section className="my-20 px-6 md:px-16 max-w-6xl mx-auto md:pt-5 bg-[#121212]">
+    <section className="my-20 px-6 md:px-16 max-w-6xl mx-auto md:pt-5">
       {/* Header */}
       <div className="mb-12">
-        <h2 className="text-sm text-gray-400 mb-1">(02)</h2>
+        <h2 className="text-sm text-gray-400 mb-1 tracking-wider">(02)</h2>
         <h3 className="text-4xl italic font-semibold text-white mb-3">
           Experience
         </h3>
-        <p className="text-sm text-gray-400 border-t border-gray-600 pt-3">
-          Here are the professional roles I've held — delivering frontend
-          solutions across consulting, public sector, and fast-moving startups.
+        <p className="text-sm text-gray-400 border-t border-gray-700 pt-3">
+          A journey across consulting, government, startups, and engineering —
+          delivering high-impact solutions in every role.
         </p>
       </div>
 
       {/* Experience Cards */}
-      <div className="space-y-6">
-        {experiences.map((exp, index) => (
+      <div className="space-y-8">
+        {experiencesData.map((exp, index) => (
           <div
             key={index}
-            className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] p-6 rounded-2xl border border-zinc-800 shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
+            className="
+              group bg-[#141414] 
+              p-7 rounded-2xl border border-zinc-800 
+              shadow-[0_0_20px_-5px_rgba(0,0,0,0.5)]
+              hover:shadow-[0_0_40px_-8px_rgba(56,189,248,0.35)]
+              transition-all duration-300
+              hover:-translate-y-2 hover:border-blue-400/40
+            "
           >
-            <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
-              <h3 className="text-lg md:text-xl font-semibold text-blue-400">
+            {/* Top row */}
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <h3 className="text-xl font-semibold text-blue-400">
                 {exp.role}{" "}
-                <span className="text-gray-400">– {exp.company}</span>
+                <span className="text-gray-300 font-normal">
+                  – {exp.company}
+                </span>
               </h3>
               <span className="text-sm text-gray-400 font-mono mt-1 md:mt-0">
                 {exp.period}
               </span>
             </div>
-            <p className="text-gray-300 text-sm">{exp.description}</p>
+
+            {/* Description bullets */}
+            <ul className="space-y-2 text-gray-300 text-sm leading-relaxed pl-4 list-disc">
+              {exp.bullets.map((item, i) => (
+                <li
+                  key={i}
+                  className="hover:text-blue-300 transition duration-200 cursor-default"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
-      {/* <div className="w-full mt-12 flex justify-center md:justify-end animate-bounce">
-        <a
-          href="#projects"
-          className="text-gray-400 hover:text-blue-400 transition text-lg"
-        >
-          ↓ Scroll Down
-        </a>
-      </div> */}
     </section>
   );
 };

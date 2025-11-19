@@ -12,75 +12,115 @@ const AboutMeComponent: React.FC = () => {
   return (
     <section
       id="about"
-      className="min-h-screen px-6 md:px-16 pt-20 bg-[#121212] md:pt-30"
+      className="
+        min-h-screen px-6 md:px-16 pt-28
+        relative
+      "
     >
+      {/* BACKGROUND ORBS */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[150px] top-10 left-10"></div>
+        <div className="absolute w-[350px] h-[350px] bg-indigo-600/10 rounded-full blur-[160px] bottom-10 right-10"></div>
+      </div>
+
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-sm text-gray-400 mb-1">(02)</h2>
-        <h2 className="text-white text-4xl font-bold mb-10 italic border-b border-gray-600 pb-3">
+        {/* Heading Section */}
+        <h2 className="text-sm text-gray-400 mb-1 tracking-wider">(03)</h2>
+        <h2 className="text-white text-4xl font-bold mb-10 italic border-b border-gray-700 pb-3">
           What I Bring to the Table
         </h2>
 
-        {/* Skills / Services Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
-          {/* Tech Stack */}
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl">
-            <Code2 className="text-blue-500 w-8 h-8 mb-4" />
-            <h3 className="text-blue-500 text-xl font-semibold mb-2">
-              Frontend Tech Stack
-            </h3>
-            <p className="text-sm text-gray-400">
-              React, Next.js, Tailwind CSS, TypeScript, Vite, JavaScript,
-              Node.js
-            </p>
-          </div>
-
-          {/* Hard Skills */}
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl">
-            <MonitorSmartphone className="text-blue-500 w-8 h-8 mb-4" />
-            <h3 className="text-blue-500 text-xl font-semibold mb-2">
-              Hard Skills
-            </h3>
-            <p className="text-sm text-gray-400">
-              Responsive Design, Component Architecture, API Integration,
-              Version Control, State Management
-            </p>
-          </div>
-
-          {/* Soft Skills */}
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl">
-            <Brain className="text-blue-500 w-8 h-8 mb-4" />
-            <h3 className="text-blue-500 text-xl font-semibold mb-2">
-              Soft Skills
-            </h3>
-            <p className="text-sm text-gray-400">
-              Problem Solving, Collaboration, Time Management, Adaptability,
-              Attention to Detail
-            </p>
-          </div>
+        {/* Skills Cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {[
+            {
+              icon: <Code2 className="text-blue-400 w-8 h-8 mb-4" />,
+              title: "Frontend Tech Stack",
+              desc: "React, Next.js, TypeScript, Tailwind, JavaScript, Node.js, Vite",
+            },
+            {
+              icon: (
+                <MonitorSmartphone className="text-purple-400 w-8 h-8 mb-4" />
+              ),
+              title: "Hard Skills",
+              desc: "Responsive UI, Component Architecture, API Integration, Git, React Query",
+            },
+            {
+              icon: <Brain className="text-pink-400 w-8 h-8 mb-4" />,
+              title: "Soft Skills",
+              desc: "Problem Solving, Teamwork, Adaptability, Time Management, Communication",
+            },
+          ].map((card, i) => (
+            <div
+              key={i}
+              className="
+                p-6 rounded-xl border border-zinc-800 
+                bg-[#161616] backdrop-blur-xl
+                shadow-[0_0_25px_-10px_rgba(0,0,0,0.6)]
+                hover:shadow-[0_0_40px_-10px_rgba(56,189,248,0.5)]
+                transition-all duration-300 hover:-translate-y-2 
+              "
+            >
+              {card.icon}
+              <h3 className="text-lg font-semibold text-blue-400 mb-2">
+                {card.title}
+              </h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                {card.desc}
+              </p>
+            </div>
+          ))}
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-sm font-medium text-gray-700">
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl ">
-            <BadgeCheck className="mx-auto mb-2 text-blue-500 w-14 h-14" />
-            <p className="text-2xl text-gray-400 font-bold">1.5+</p>
-            <span className="text-gray-400">Years Experience</span>
-          </div>
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl ">
-            <Puzzle className="mx-auto mb-2 text-green-500 w-14 h-14" />
-            <p className="text-2xl text-gray-400 font-bold">5+</p>
-            <span className="text-gray-400">Completed Projects</span>
-          </div>
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl ">
-            <Users className="mx-auto mb-2 text-orange-500 w-14 h-14" />
-            <p className="text-2xl text-gray-400 font-bold">3</p>
-            <span className="text-gray-400">Clients / Teams</span>
-          </div>
-          <div className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] border border-zinc-800 p-6 rounded-xl ">
-            <Code2 className="mx-auto mb-2 text-sky-500 w-14 h-14" />
-            <p className="text-2xl text-gray-400 font-bold">1000+</p>
-            <span className="text-gray-400">Hours Coded</span>
-          </div>
+        <div
+          className="
+            grid grid-cols-2 md:grid-cols-4 gap-8 
+            text-center text-sm font-medium text-gray-400
+          "
+        >
+          {[
+            {
+              icon: (
+                <BadgeCheck className="mx-auto mb-3 text-blue-400 w-12 h-12" />
+              ),
+              number: "1.5+",
+              label: "Years Experience",
+            },
+            {
+              icon: (
+                <Puzzle className="mx-auto mb-3 text-green-400 w-12 h-12" />
+              ),
+              number: "5+",
+              label: "Completed Projects",
+            },
+            {
+              icon: (
+                <Users className="mx-auto mb-3 text-yellow-400 w-12 h-12" />
+              ),
+              number: "3",
+              label: "Clients / Teams",
+            },
+            {
+              icon: <Code2 className="mx-auto mb-3 text-sky-400 w-12 h-12" />,
+              number: "1000+",
+              label: "Hours Coded",
+            },
+          ].map((stat, i) => (
+            <div
+              key={i}
+              className="
+                p-6 rounded-xl border border-zinc-800 bg-[#161616]
+                shadow-[0_0_25px_-10px_rgba(0,0,0,0.6)]
+                hover:shadow-[0_0_40px_-10px_rgba(56,189,248,0.4)]
+                transition-all duration-300 hover:-translate-y-2
+              "
+            >
+              {stat.icon}
+              <p className="text-2xl font-bold text-gray-200">{stat.number}</p>
+              <span>{stat.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

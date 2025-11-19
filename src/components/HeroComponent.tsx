@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import heroAnimation from "../assets/hero-animation.json";
 import { Typewriter } from "react-simple-typewriter";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const HeroComponent: React.FC = () => {
+  const [visitorName, setVisitorName] = useState<string | null>(null);
+
+  useEffect(() => {
+    const name = localStorage.getItem("visitorName");
+    if (name) setVisitorName(name);
+  }, []);
+
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between gap-10 px-6 md:px-16 bg-[#121212] text-white">
+    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between gap-10 px-6 md:px-16 text-white">
       {/* 👤 Profile Animation */}
       <div className="w-full md:w-1/2 flex justify-center">
         <Lottie animationData={heroAnimation} loop className="w-96 h-96" />
@@ -14,8 +21,17 @@ const HeroComponent: React.FC = () => {
 
       {/* 👋 Introduction Text */}
       <div className="w-full md:w-1/2 text-center md:text-left">
-        <h1 className="mb-5 text-3xl sm:text-5xl font-bold">
-          Hi, I’m{" "}
+        {/* 🔥 Personalized Greeting */}
+        {visitorName && (
+          <p className="text-lg text-gray-300 mb-2">
+            Hi{" "}
+            <span className="text-blue-400 font-semibold">{visitorName}</span>,
+            welcome!
+          </p>
+        )}
+
+        <h1 className="mb-5 text-3xl sm:text-5xl font-bold leading-tight">
+          {visitorName ? "I’m " : "Hi, I’m "}
           <span className="text-blue-500 font-semibold">
             <Typewriter
               words={[
@@ -35,14 +51,17 @@ const HeroComponent: React.FC = () => {
         </h1>
 
         <p className="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">
-          A passionate Front-End Developer with a strong background in Computer
-          Science, experienced in building responsive and modern web
-          applications using React, Vite, and Tailwind CSS.
+          IT Consultant with a strong foundation in software engineering, IT
+          consulting, and digital transformation. Experienced in enterprise
+          applications and cross-sector projects, skilled in solution design,
+          client analysis, and collaboration to align technology with business
+          goals. Passionate about leveraging cloud and emerging technologies to
+          drive innovation and efficiency.
         </p>
+
         <p className="text-base text-gray-400 mb-6">
-          Currently working as Associate Assistant at PwC Indonesia. Previously
-          contributed to projects with the Ministry of Maritime Affairs and
-          Fisheries, Haus! Indonesia, and more.
+          Former Associate Assistant at PwC Indonesia with contributions to the
+          Ministry of Maritime Affairs and Fisheries, Haus! Indonesia, and more.
         </p>
 
         {/* 🔗 Buttons */}
@@ -87,16 +106,6 @@ const HeroComponent: React.FC = () => {
             <FaEnvelope />
           </a>
         </div>
-
-        {/* ↓ Scroll Down Hint */}
-        {/* <div className="mt-12 flex justify-center md:justify-start animate-bounce">
-          <a
-            href="#about"
-            className="text-gray-400 hover:text-blue-400 transition text-lg"
-          >
-            ↓ Scroll Down
-          </a>
-        </div> */}
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, MessageSquare } from "lucide-react";
 import { faqData } from "../Data/FAQData";
 
 const FAQAccordion: React.FC = () => {
@@ -8,69 +8,103 @@ const FAQAccordion: React.FC = () => {
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const newHeights = contentRefs.current.map((ref) =>
-      ref ? ref.scrollHeight : 0
-    );
-    setHeights(newHeights);
+    setHeights(contentRefs.current.map((ref) => (ref ? ref.scrollHeight : 0)));
   }, []);
 
-  const toggleFAQ = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
+  const toggleIndex = (index: number) => {
+    setActiveIndex((prev) => (prev === index ? null : index));
   };
 
   return (
-    <section id="faq" className="mb-20 px-6 md:px-16 max-w-6xl mx-auto">
-      <div className="w-full">
-        {/* Title */}
-        <div className="mb-12">
-          <h2 className="text-sm text-gray-400 mb-1">(06)</h2>
-          <h3 className="text-4xl italic font-semibold text-white mb-5">
+    <section
+      id="faq"
+      className="relative mb-28 px-6 md:px-16 max-w-6xl mx-auto"
+    >
+      {/* BACKGROUND ORBS */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute w-[350px] h-[350px] bg-sky-500/10 rounded-full blur-[150px] top-10 left-10" />
+        <div className="absolute w-[300px] h-[300px] bg-purple-500/10 rounded-full blur-[150px] bottom-10 right-10" />
+      </div>
+
+      {/* HEADER */}
+      <div className="mb-14">
+        <h2 className="text-sm text-gray-500 mb-1 tracking-wider">(06)</h2>
+
+        <div className="flex items-center gap-3 mb-5">
+          <MessageSquare className="text-blue-400 w-8 h-8" />
+          <h3 className="text-4xl italic font-semibold text-white">
             Frequently Asked Questions
           </h3>
-          <p className="text-sm text-gray-400 border-t border-gray-600 pt-3">
-            These are some of the common questions I get from recruiters,
-            collaborators, or clients — and my answers to help you understand my
-            background better.
-          </p>
         </div>
 
-        {/* FAQ List */}
-        <div className="space-y-4">
-          {faqData.map((item, index) => {
-            const isActive = activeIndex === index;
-            return (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-[#1f1f1f] to-[#2a2a2a] border border-zinc-700 rounded-xl shadow-md hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]"
+        <p className="text-sm text-gray-400 border-t border-gray-700 pt-3 leading-relaxed max-w-3xl">
+          Here are the questions I commonly receive from recruiters, clients, or
+          collaborators — answered to give you a clearer view of my background,
+          work ethic, and capabilities.
+        </p>
+      </div>
+
+      {/* FAQ LIST */}
+      <div className="space-y-4">
+        {faqData.map((item, index) => {
+          const isOpen = activeIndex === index;
+
+          return (
+            <div
+              key={index}
+              className="
+                bg-[#151515]/80 backdrop-blur-xl
+                border border-zinc-800 rounded-xl
+                shadow-[0_0_25px_-10px_rgba(56,189,248,0.25)]
+                hover:shadow-[0_0_40px_-10px_rgba(56,189,248,0.35)]
+                transition-all duration-300
+                hover:-translate-y-1 hover:scale-[1.01]
+              "
+            >
+              {/* HEADER BUTTON */}
+              <button
+                onClick={() => toggleIndex(index)}
+                className="
+                  w-full px-6 py-5
+                  flex justify-between items-center
+                  text-left text-white font-medium text-lg
+                  cursor-pointer
+                  transition-colors duration-200
+                  hover:bg-zinc-800/40
+                  rounded-t-xl
+                "
               >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full flex justify-between items-center px-6 py-4 text-left text-white font-medium text-lg hover:bg-zinc-800 transition rounded-t-xl cursor-pointer"
-                >
-                  {item.question}
-                  <ChevronDown
-                    className={`w-5 h-5 text-gray-400 transform transition-transform ${
-                      isActive ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                <div
-                  ref={(el) => {
-                    contentRefs.current[index] = el;
-                  }}
-                  className={`px-6 overflow-hidden transition-all duration-500 ease-in-out text-sm text-gray-300 ${
-                    isActive ? "py-4 opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                  style={{
-                    maxHeight: isActive ? `${heights[index] + 150}px` : "0px",
-                  }}
-                >
-                  <p>{item.answer}</p>
-                </div>
+                {item.question}
+
+                <ChevronDown
+                  className={`
+                  w-5 h-5 text-gray-400 transition-transform duration-300
+                  ${isOpen ? "rotate-180" : ""}
+                `}
+                />
+              </button>
+
+              {/* CONTENT */}
+              <div
+                ref={(el) => {
+                  contentRefs.current[index] = el;
+                }}
+                className={`
+                  px-6 overflow-hidden text-sm text-gray-300 
+                  transition-all duration-500 ease-in-out
+                  ${isOpen ? "opacity-100 py-4" : "max-h-0 opacity-0"}
+                `}
+                style={{
+                  maxHeight: isOpen
+                    ? `${heights[index] ? heights[index] + 40 : 0}px`
+                    : "0px",
+                }}
+              >
+                <p className="leading-relaxed">{item.answer}</p>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
