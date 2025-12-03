@@ -25,8 +25,8 @@ const AboutMeComponent: React.FC = () => {
 
       <div className="max-w-6xl mx-auto">
         {/* Heading Section */}
-        <h2 className="text-sm text-gray-400 mb-1 tracking-wider">(03)</h2>
-        <h2 className="text-white text-4xl font-bold mb-10 italic border-b border-gray-700 pb-3">
+        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">(03)</h2>
+        <h2 className="text-primary text-4xl font-display font-bold mb-10 italic border-b border-gray-300 dark:border-gray-700 pb-3">
           What I Bring to the Table
         </h2>
 
@@ -54,18 +54,18 @@ const AboutMeComponent: React.FC = () => {
             <div
               key={i}
               className="
-                p-6 rounded-xl border border-zinc-800 
-                bg-[#161616] backdrop-blur-xl
-                shadow-[0_0_25px_-10px_rgba(0,0,0,0.6)]
-                hover:shadow-[0_0_40px_-10px_rgba(56,189,248,0.5)]
+                p-6 rounded-xl border border-gray-200 dark:border-zinc-800 
+                bg-white dark:bg-[#161616] backdrop-blur-xl
+                shadow-theme-lg dark:shadow-theme-lg dark:hover:shadow-glow-blue
+                hover:shadow-theme-xl
                 transition-all duration-300 hover:-translate-y-2 
               "
             >
               {card.icon}
-              <h3 className="text-lg font-semibold text-blue-400 mb-2">
+              <h3 className="text-lg font-display font-semibold text-blue-600 dark:text-blue-400 mb-2">
                 {card.title}
               </h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className="text-sm text-secondary leading-relaxed font-sans">
                 {card.desc}
               </p>
             </div>
@@ -76,7 +76,7 @@ const AboutMeComponent: React.FC = () => {
         <div
           className="
             grid grid-cols-2 md:grid-cols-4 gap-8 
-            text-center text-sm font-medium text-gray-400
+            text-center text-sm font-medium text-secondary font-sans
           "
         >
           {[
@@ -110,14 +110,15 @@ const AboutMeComponent: React.FC = () => {
             <div
               key={i}
               className="
-                p-6 rounded-xl border border-zinc-800 bg-[#161616]
-                shadow-[0_0_25px_-10px_rgba(0,0,0,0.6)]
-                hover:shadow-[0_0_40px_-10px_rgba(56,189,248,0.4)]
+                p-6 rounded-xl border border-gray-200 dark:border-zinc-800 
+                bg-white dark:bg-[#161616]
+                shadow-theme-lg dark:hover:shadow-glow-blue
+                hover:shadow-theme-xl
                 transition-all duration-300 hover:-translate-y-2
               "
             >
               {stat.icon}
-              <p className="text-2xl font-bold text-gray-200">{stat.number}</p>
+              <p className="text-2xl font-display font-bold text-primary">{stat.number}</p>
               <span>{stat.label}</span>
             </div>
           ))}

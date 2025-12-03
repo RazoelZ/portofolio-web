@@ -6,27 +6,15 @@ import {
   FiBriefcase,
   FiBookOpen,
   FiHelpCircle,
-  // FiMoon,
-  // FiSun,
+  FiMoon,
+  FiSun,
 } from "react-icons/fi";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { useTheme } from "../Hooks/useTheme";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [isDark, setIsDark] = useState(
-  //   localStorage.getItem("theme") === "dark"
-  // );
-
-  // useEffect(() => {
-  //   const root = document.documentElement;
-  //   if (isDark) {
-  //     root.classList.add("dark");
-  //     localStorage.setItem("theme", "dark");
-  //   } else {
-  //     root.classList.remove("dark");
-  //     localStorage.setItem("theme", "light");
-  //   }
-  // }, [isDark]);
+  const { theme, toggleTheme } = useTheme();
 
   const menuItems = [
     { name: "Home", href: "#home", icon: <FiHome /> },
@@ -55,9 +43,9 @@ const Navbar: React.FC = () => {
         className="
           mx-auto px-5 md:px-10 py-4
           flex justify-between items-center
-          backdrop-blur-xl bg-white/5 dark:bg-black/20
-          border-b border-white/10 dark:border-white/5
-          shadow-[0_4px_25px_rgba(0,0,0,0.2)]
+          backdrop-blur-xl bg-white/80 dark:bg-black/20
+          border-b border-gray-200 dark:border-white/5
+          shadow-theme-md
         "
       >
         {/* LEFT MENU */}
@@ -67,8 +55,8 @@ const Navbar: React.FC = () => {
               <a
                 href={href}
                 className="
-                  transition text-white/80 dark:text-gray-200
-                  hover:text-blue-400 hover:scale-110
+                  transition text-secondary
+                  hover:text-blue-600 dark:hover:text-blue-400 hover:scale-110
                 "
               >
                 {icon}
@@ -80,7 +68,7 @@ const Navbar: React.FC = () => {
                   absolute top-full mt-1 left-1/2 -translate-x-1/2 opacity-0 scale-90
                   group-hover:opacity-100 group-hover:scale-100
                   transition-all duration-150
-                  bg-black/70 px-2 py-1 rounded text-xs text-white
+                  bg-gray-800 dark:bg-black/70 px-2 py-1 rounded text-xs text-white
                   backdrop-blur-md whitespace-nowrap
                 "
               >
@@ -97,7 +85,7 @@ const Navbar: React.FC = () => {
             alt="Avatar"
             className="
               w-10 h-10 rounded-full object-cover
-              border border-white/20 shadow-lg
+              border border-gray-300 dark:border-white/20 shadow-lg
               hover:scale-110 transition
             "
           />
@@ -111,7 +99,8 @@ const Navbar: React.FC = () => {
               href={href}
               target="_blank"
               className="
-                hover:text-blue-400 hover:scale-110 transition relative group
+                text-secondary
+                hover:text-blue-600 dark:hover:text-blue-400 hover:scale-110 transition relative group
               "
             >
               {icon}
@@ -122,7 +111,7 @@ const Navbar: React.FC = () => {
                   absolute top-full mt-1 left-1/2 -translate-x-1/2 opacity-0 scale-90
                   group-hover:opacity-100 group-hover:scale-100
                   transition-all duration-150
-                  bg-black/70 px-2 py-1 rounded text-xs text-white
+                  bg-gray-800 dark:bg-black/70 px-2 py-1 rounded text-xs text-white
                   backdrop-blur-md whitespace-nowrap
                 "
               >
@@ -131,20 +120,26 @@ const Navbar: React.FC = () => {
             </a>
           ))}
 
-          {/* <button
-            onClick={() => setIsDark(!isDark)}
-            className="
-              hover:text-yellow-400 hover:scale-110 transition
-            "
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-xl bg-gray-200 dark:bg-gray-800 transition cursor-pointer text-gray-800 dark:text-gray-200"
+            key={theme}
           >
-            {isDark ? <FiSun /> : <FiMoon />}
-          </button> */}
+            {theme === "light" ? (
+              <FiMoon size={20} className="text-gray-800 dark:text-gray-200" />
+            ) : (
+              <FiSun
+                size={20}
+                className="text-yellow-500 dark:text-yellow-400"
+              />
+            )}
+          </button>
         </div>
 
         {/* MOBILE HAMBURGER */}
         <button
           onClick={() => setIsOpen(true)}
-          className="md:hidden text-3xl text-white"
+          className="md:hidden text-3xl text-primary"
         >
           <FiMenu />
         </button>
@@ -152,24 +147,24 @@ const Navbar: React.FC = () => {
 
       {/* MOBILE MENU */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-lg z-50 flex flex-col">
+        <div className="fixed inset-0 bg-white/95 dark:bg-black/80 backdrop-blur-lg z-50 flex flex-col">
           <div className="flex justify-end p-6">
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white text-4xl"
+              className="text-gray-900 dark:text-white text-4xl"
             >
               <FiX />
             </button>
           </div>
 
-          <div className="flex-1 flex flex-col items-center justify-center gap-6 text-white text-2xl">
+          <div className="flex-1 flex flex-col items-center justify-center gap-6 text-primary text-2xl">
             {menuItems.map(({ name, href, icon }) => (
               <a
                 key={name}
                 href={href}
                 onClick={() => setIsOpen(false)}
                 className="
-                  flex items-center gap-3 hover:text-blue-400 transition
+                  flex items-center gap-3 hover:text-blue-600 dark:hover:text-blue-400 transition font-sans
                 "
               >
                 {icon}
@@ -177,26 +172,34 @@ const Navbar: React.FC = () => {
               </a>
             ))}
 
-            <div className="flex gap-6 pt-6 text-2xl border-t border-gray-700 mt-6">
+            <div className="flex gap-6 pt-6 text-2xl border-t border-gray-300 dark:border-gray-700 mt-6">
               {socialItems.map(({ icon, href }) => (
                 <a
                   key={href}
                   href={href}
-                  className="hover:text-blue-400 transition"
+                  className="text-secondary hover:text-blue-600 dark:hover:text-blue-400 transition"
                 >
                   {icon}
                 </a>
               ))}
 
-              {/* <button
-                onClick={() => {
-                  setIsDark(!isDark);
-                  setIsOpen(false);
-                }}
-                className="hover:text-yellow-400 transition"
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-xl bg-gray-200 dark:bg-gray-800 transition cursor-pointer text-gray-800 dark:text-gray-200"
+                key={theme}
               >
-                {isDark ? <FiSun /> : <FiMoon />}
-              </button> */}
+                {theme === "light" ? (
+                  <FiMoon
+                    size={20}
+                    className="text-gray-800 dark:text-gray-200"
+                  />
+                ) : (
+                  <FiSun
+                    size={20}
+                    className="text-yellow-500 dark:text-yellow-400"
+                  />
+                )}
+              </button>
             </div>
           </div>
         </div>

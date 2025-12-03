@@ -65,9 +65,12 @@ function App() {
   return (
     <div
       className="
-      bg-gradient-to-br from-[#0b0b0f] via-[#0d0d12] to-[#0c0b0f]
-      text-white relative min-h-screen
-      "
+          min-h-screen relative 
+          text-black dark:text-white
+          bg-white dark:bg-gradient-to-br 
+          dark:from-[#0b0b0f] dark:via-[#0d0d12] dark:to-[#0c0b0f]
+          transition-colors duration-300
+        "
     >
       <Navbar />
 

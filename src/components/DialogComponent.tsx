@@ -19,16 +19,16 @@ const DialogComponent: React.FC<DialogProps> = ({
     <div
       className="
         fixed inset-0 z-50 flex items-center justify-center
-        bg-black/70 backdrop-blur-md
+        bg-black/70 dark:bg-black/70 backdrop-blur-md
         animate-fadeIn
       "
     >
       <div
         className="
-          bg-[#1b1b1b]/95 backdrop-blur-xl
-          border border-zinc-700 rounded-xl
-          shadow-[0_0_50px_-10px_rgba(56,189,248,0.4)]
-          max-w-5xl w-full mx-4 p-6 text-white
+          bg-white dark:bg-[#1b1b1b]/95 backdrop-blur-xl
+          border border-gray-300 dark:border-zinc-700 rounded-xl
+          shadow-xl dark:shadow-[0_0_50px_-10px_rgba(56,189,248,0.4)]
+          max-w-5xl w-full mx-4 p-6 text-gray-900 dark:text-white
           animate-scaleIn
         "
       >
@@ -37,7 +37,7 @@ const DialogComponent: React.FC<DialogProps> = ({
           <h3 className="text-xl font-semibold">{title}</h3>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-red-400 text-xl transition"
+            className="text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 text-xl transition"
           >
             ✕
           </button>

@@ -28,16 +28,16 @@ const FAQAccordion: React.FC = () => {
 
       {/* HEADER */}
       <div className="mb-14">
-        <h2 className="text-sm text-gray-500 mb-1 tracking-wider">(06)</h2>
+        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">(06)</h2>
 
         <div className="flex items-center gap-3 mb-5">
-          <MessageSquare className="text-blue-400 w-8 h-8" />
-          <h3 className="text-4xl italic font-semibold text-white">
+          <MessageSquare className="text-blue-600 dark:text-blue-400 w-8 h-8" />
+          <h3 className="text-4xl italic font-display font-semibold text-primary">
             Frequently Asked Questions
           </h3>
         </div>
 
-        <p className="text-sm text-gray-400 border-t border-gray-700 pt-3 leading-relaxed max-w-3xl">
+        <p className="text-sm text-secondary border-t border-gray-300 dark:border-gray-700 pt-3 leading-relaxed max-w-3xl font-sans">
           Here are the questions I commonly receive from recruiters, clients, or
           collaborators — answered to give you a clearer view of my background,
           work ethic, and capabilities.
@@ -53,10 +53,10 @@ const FAQAccordion: React.FC = () => {
             <div
               key={index}
               className="
-                bg-[#151515]/80 backdrop-blur-xl
-                border border-zinc-800 rounded-xl
-                shadow-[0_0_25px_-10px_rgba(56,189,248,0.25)]
-                hover:shadow-[0_0_40px_-10px_rgba(56,189,248,0.35)]
+                bg-white dark:bg-[#151515]/80 backdrop-blur-xl
+                border border-gray-200 dark:border-zinc-800 rounded-xl
+                shadow-theme-lg dark:hover:shadow-glow-blue
+                hover:shadow-theme-xl
                 transition-all duration-300
                 hover:-translate-y-1 hover:scale-[1.01]
               "
@@ -67,10 +67,10 @@ const FAQAccordion: React.FC = () => {
                 className="
                   w-full px-6 py-5
                   flex justify-between items-center
-                  text-left text-white font-medium text-lg
+                  text-left text-primary font-display font-medium text-lg
                   cursor-pointer
                   transition-colors duration-200
-                  hover:bg-zinc-800/40
+                  hover:bg-gray-100 dark:hover:bg-zinc-800/40
                   rounded-t-xl
                 "
               >
@@ -78,7 +78,7 @@ const FAQAccordion: React.FC = () => {
 
                 <ChevronDown
                   className={`
-                  w-5 h-5 text-gray-400 transition-transform duration-300
+                  w-5 h-5 text-gray-600 dark:text-gray-400 transition-transform duration-300
                   ${isOpen ? "rotate-180" : ""}
                 `}
                 />
@@ -90,7 +90,7 @@ const FAQAccordion: React.FC = () => {
                   contentRefs.current[index] = el;
                 }}
                 className={`
-                  px-6 overflow-hidden text-sm text-gray-300 
+                  px-6 overflow-hidden text-sm text-secondary font-sans
                   transition-all duration-500 ease-in-out
                   ${isOpen ? "opacity-100 py-4" : "max-h-0 opacity-0"}
                 `}
