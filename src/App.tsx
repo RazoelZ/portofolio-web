@@ -14,6 +14,7 @@ import ProjectComponent from "./components/ProjectComponent";
 import EducationComponent from "./components/EducationComponents";
 import CertificationComponent from "./components/CertificationComponent";
 import FAQAccordion from "./components/FAQAccordion";
+import { Analytics } from "@vercel/analytics/next";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -73,7 +74,8 @@ function App() {
         "
     >
       <Navbar />
-
+      {/* Analytics */}
+      <Analytics />
       {/* Smooth fade-in main content */}
       <div className="flex flex-col gap-20 px-4 md:px-10 animate-fadeInSlow">
         {/* HOME */}
