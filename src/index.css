@@ -49,6 +49,14 @@ body {
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+button {
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+}
+
 /* Typography utilities */
 .text-primary {
   color: var(--color-text-primary);

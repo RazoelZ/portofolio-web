@@ -28,7 +28,9 @@ const FAQAccordion: React.FC = () => {
 
       {/* HEADER */}
       <div className="mb-14">
-        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">(06)</h2>
+        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
+          {`(0${7})`}
+        </h2>
 
         <div className="flex items-center gap-3 mb-5">
           <MessageSquare className="text-blue-600 dark:text-blue-400 w-8 h-8" />
@@ -68,7 +70,6 @@ const FAQAccordion: React.FC = () => {
                   w-full px-6 py-5
                   flex justify-between items-center
                   text-left text-primary font-display font-medium text-lg
-                  cursor-pointer
                   transition-colors duration-200
                   hover:bg-gray-100 dark:hover:bg-zinc-800/40
                   rounded-t-xl

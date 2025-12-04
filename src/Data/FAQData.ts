@@ -2,7 +2,7 @@ export const faqData = [
   {
     question: "What is your educational background?",
     answer:
-      "I graduated with a Bachelor's degree in Informatics from Diponegoro University with a GPA of 3.80/4.00.",
+      "I graduated with a Bachelor's degree in Informatics from Diponegoro University with a GPA of 3.80/4.00 (Magna Cum Laude).",
   },
   {
     question: "How long have you been working as a frontend developer?",

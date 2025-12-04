@@ -8,6 +8,8 @@ import {
   FiHelpCircle,
   FiMoon,
   FiSun,
+  FiUser,
+  FiTrello,
 } from "react-icons/fi";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { useTheme } from "../Hooks/useTheme";
@@ -18,7 +20,9 @@ const Navbar: React.FC = () => {
 
   const menuItems = [
     { name: "Home", href: "#home", icon: <FiHome /> },
+    { name: "About Me", href: "#about-me", icon: <FiUser /> },
     { name: "Experience", href: "#experiences", icon: <FiBriefcase /> },
+    { name: "Projects", href: "#projects", icon: <FiTrello /> },
     { name: "Education", href: "#education", icon: <FiBookOpen /> },
     { name: "FAQ", href: "#faq", icon: <FiHelpCircle /> },
   ];
@@ -122,7 +126,7 @@ const Navbar: React.FC = () => {
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-xl bg-gray-200 dark:bg-gray-800 transition cursor-pointer text-gray-800 dark:text-gray-200"
+            className="p-2 rounded-xl bg-gray-200 dark:bg-gray-800 transition text-gray-800 dark:text-gray-200"
             key={theme}
           >
             {theme === "light" ? (
@@ -185,7 +189,7 @@ const Navbar: React.FC = () => {
 
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-xl bg-gray-200 dark:bg-gray-800 transition cursor-pointer text-gray-800 dark:text-gray-200"
+                className="p-2 rounded-xl bg-gray-200 dark:bg-gray-800 transition text-gray-800 dark:text-gray-200"
                 key={theme}
               >
                 {theme === "light" ? (

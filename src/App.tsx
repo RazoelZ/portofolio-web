@@ -2,7 +2,6 @@ import "./App.css";
 import Navbar from "./components/NavbarComponent";
 import LoaderComponent from "./components/LoaderComponent";
 import { useEffect, useState } from "react";
-import { useAnimatedTitle } from "./Hooks/useAnimatedTitle";
 
 import SplashScreenInput from "./screens/SplashScreen";
 import SplashScreenReturning from "./screens/SplashScreenReturning";
@@ -14,105 +13,92 @@ import ProjectComponent from "./components/ProjectComponent";
 import EducationComponent from "./components/EducationComponents";
 import CertificationComponent from "./components/CertificationComponent";
 import FAQAccordion from "./components/FAQAccordion";
-import { Analytics } from "@vercel/analytics/next";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [visitorName, setVisitorName] = useState<string>("");
 
-  // Splash logic
   const [showInputSplash, setShowInputSplash] = useState(false);
   const [showReturningSplash, setShowReturningSplash] = useState(false);
 
-  useAnimatedTitle("👋 Welcome to Dany's Portfolio", 200);
+  /** Load visitor name once */
+  useEffect(() => {
+    const stored = localStorage.getItem("visitorName");
+    setVisitorName(stored || "");
+  }, []);
 
-  /** 1️⃣ Fake Initial Loading Animation */
+  /** Update title whenever visitorName changes */
+  useEffect(() => {
+    document.title = visitorName ? `Welcome ${visitorName} 👋` : "Welcome 👋";
+  }, [visitorName]);
+
+  /** Fake loading animation */
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(t);
   }, []);
 
-  /** 2️⃣ Splash Logic (input vs returning) */
+  /** Decide splash type */
   useEffect(() => {
     const stored = localStorage.getItem("visitorName");
-
-    if (stored) {
-      setShowReturningSplash(true);
-    } else {
-      setShowInputSplash(true);
-    }
+    setShowInputSplash(!stored);
+    setShowReturningSplash(!!stored);
   }, []);
 
-  /** Hide All Splash Screens */
+  /** Handles closing splash */
   const handleSplashComplete = () => {
     setShowInputSplash(false);
     setShowReturningSplash(false);
   };
 
-  // FIRST: Initial loading
-  if (loading) {
-    return <LoaderComponent />;
-  }
+  /** Update visitorName immediately after input */
+  const handleNameSet = (name: string) => {
+    setVisitorName(name); // 🔥 instantly update
+  };
 
-  // SECOND: Show correct splash screen
-  if (showInputSplash) {
-    return <SplashScreenInput onComplete={handleSplashComplete} />;
-  }
+  // 1️⃣ Loading
+  if (loading) return <LoaderComponent />;
 
-  if (showReturningSplash) {
+  // 2️⃣ Splash screens
+  if (showInputSplash)
+    return (
+      <SplashScreenInput
+        onComplete={handleSplashComplete}
+        onNameSet={handleNameSet} // 🔥 FIX HERE
+      />
+    );
+
+  if (showReturningSplash)
     return <SplashScreenReturning onComplete={handleSplashComplete} />;
-  }
 
-  // MAIN RENDER
+  // 3️⃣ Main content
   return (
-    <div
-      className="
-          min-h-screen relative 
-          text-black dark:text-white
-          bg-white dark:bg-gradient-to-br 
-          dark:from-[#0b0b0f] dark:via-[#0d0d12] dark:to-[#0c0b0f]
-          transition-colors duration-300
-        "
-    >
+    <div className="min-h-screen relative text-black dark:text-white bg-white dark:bg-gradient-to-br dark:from-[#0b0b0f] dark:via-[#0d0d12] dark:to-[#0c0b0f] transition-colors duration-300">
       <Navbar />
-      {/* Analytics */}
-      <Analytics />
-      {/* Smooth fade-in main content */}
+
       <div className="flex flex-col gap-20 px-4 md:px-10 animate-fadeInSlow">
-        {/* HOME */}
         <section id="home" className="scroll-mt-28">
           <HeroComponent />
+        </section>
+
+        <section id="about-me" className="scroll-mt-28">
           <AboutMeComponent />
         </section>
 
-        {/* EXPERIENCES */}
         <section id="experiences" className="scroll-mt-28">
           <ExperienceComponent />
           <ProjectComponent />
         </section>
 
-        {/* EDUCATION */}
         <section id="education" className="scroll-mt-28">
           <EducationComponent />
           <CertificationComponent />
         </section>
 
-        {/* FAQ */}
         <section id="faq" className="scroll-mt-28 pb-20">
           <FAQAccordion />
         </section>
       </div>
-
-      {/* Fade Animations */}
-      <style>{`
-        .animate-fadeInSlow {
-          animation: fadeInSlow 0.9s ease-out;
-        }
-
-        @keyframes fadeInSlow {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   );
 }

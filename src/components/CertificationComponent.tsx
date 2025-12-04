@@ -57,7 +57,9 @@ const CertificationComponent: React.FC = () => {
           )}
         </p>
       ) : (
-        <p className="text-sm text-tertiary italic font-sans">Credential pending</p>
+        <p className="text-sm text-tertiary italic font-sans">
+          Credential pending
+        </p>
       )}
     </div>
   );
@@ -75,7 +77,9 @@ const CertificationComponent: React.FC = () => {
 
       {/* Header */}
       <div className="w-full mb-10">
-        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">(05)</h2>
+        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
+          {`(0${6})`}
+        </h2>
 
         <div className="flex items-center gap-3 mb-4">
           <Medal className="text-blue-600 dark:text-blue-400 w-7 h-7" />
@@ -105,7 +109,7 @@ const CertificationComponent: React.FC = () => {
               hover:shadow-theme-xl
               transition-all duration-300 
               hover:-translate-y-2 hover:scale-[1.02]
-              text-left cursor-pointer
+              text-left
             "
           >
             <h4 className="text-primary font-display font-semibold text-md mb-1">

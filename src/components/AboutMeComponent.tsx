@@ -25,7 +25,9 @@ const AboutMeComponent: React.FC = () => {
 
       <div className="max-w-6xl mx-auto">
         {/* Heading Section */}
-        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">(03)</h2>
+        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
+          {`(0${2})`}
+        </h2>
         <h2 className="text-primary text-4xl font-display font-bold mb-10 italic border-b border-gray-300 dark:border-gray-700 pb-3">
           What I Bring to the Table
         </h2>
@@ -118,7 +120,9 @@ const AboutMeComponent: React.FC = () => {
               "
             >
               {stat.icon}
-              <p className="text-2xl font-display font-bold text-primary">{stat.number}</p>
+              <p className="text-2xl font-display font-bold text-primary">
+                {stat.number}
+              </p>
               <span>{stat.label}</span>
             </div>
           ))}

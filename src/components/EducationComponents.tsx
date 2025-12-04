@@ -15,7 +15,9 @@ const EducationComponent: React.FC = () => {
 
       {/* TITLE */}
       <div className="mb-12">
-        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">(04)</h2>
+        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
+          {`(0${5})`}
+        </h2>
 
         <div className="flex items-center gap-3 mb-4">
           <GraduationCap className="text-blue-600 dark:text-blue-400 w-9 h-9" />
@@ -27,7 +29,7 @@ const EducationComponent: React.FC = () => {
         <p className="text-sm md:text-lg text-secondary border-t border-gray-300 dark:border-gray-700 pt-3 leading-relaxed max-w-5xl font-sans">
           I earned my Bachelor's Degree in Informatics from Diponegoro
           University, graduating with a strong academic performance (GPA 3.80 /
-          4.00). Throughout my studies, I developed a solid foundation in
+          4.00 ). Throughout my studies, I developed a solid foundation in
           software engineering, front-end development, system design, and
           project lifecycle management. This educational journey has shaped my
           approach to building highly structured and user-centered systems,
@@ -47,7 +49,9 @@ const EducationComponent: React.FC = () => {
         "
       >
         {/* Date */}
-        <p className="text-sm text-tertiary mb-1 font-mono">Sep 2020 – Jun 2024</p>
+        <p className="text-sm text-tertiary mb-1 font-mono">
+          Sep 2020 – Jun 2024
+        </p>
 
         {/* Title */}
         <h4 className="text-2xl font-display font-semibold text-primary mb-2">
@@ -57,7 +61,9 @@ const EducationComponent: React.FC = () => {
         {/* University + GPA */}
         <p className="text-sm text-secondary mb-4 font-sans">
           Diponegoro University (UNDIP) — GPA:{" "}
-          <span className="text-blue-600 dark:text-blue-400 font-semibold">3.80 / 4.00</span>
+          <span className="text-blue-600 dark:text-blue-400 font-semibold">
+            3.80 / 4.00 (Magna Cum Laude)
+          </span>
         </p>
 
         {/* Thesis */}
@@ -69,7 +75,10 @@ const EducationComponent: React.FC = () => {
               "Front-end Development of Outcome Based Education (OBE) Curriculum
               Based Learning Achievement Monitoring Application"
             </span>{" "}
-            — <span className="text-blue-600 dark:text-blue-400 font-semibold">A grade</span>
+            —{" "}
+            <span className="text-blue-600 dark:text-blue-400 font-semibold">
+              A grade
+            </span>
           </p>
         </div>
 
