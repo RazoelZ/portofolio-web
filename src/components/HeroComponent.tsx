@@ -13,7 +13,7 @@ const HeroComponent: React.FC = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between gap-10 px-6 md:px-16 text-primary">
+    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between gap-10 px-6  text-primary">
       {/* 👤 Profile Animation */}
       <div className="w-full md:w-1/2 flex justify-center">
         <Lottie animationData={heroAnimation} loop className="w-96 h-96" />
@@ -36,12 +36,7 @@ const HeroComponent: React.FC = () => {
           {visitorName ? "I'm " : "Hi, I'm "}
           <span className="text-blue-600 dark:text-blue-500 font-semibold">
             <Typewriter
-              words={[
-                "Dany",
-                "Razoel",
-                "a Software Engineer",
-                "Consulting Enthusiast",
-              ]}
+              words={["Dany", "Razoel", "a Software Engineer", "IT Consultant"]}
               loop={true}
               cursor
               cursorStyle="_"
@@ -53,17 +48,14 @@ const HeroComponent: React.FC = () => {
         </h1>
 
         <p className="text-lg md:text-xl text-secondary mb-6 leading-relaxed font-sans">
-          IT Consultant with a strong foundation in software engineering, IT
-          consulting, and digital transformation. Experienced in enterprise
-          applications and cross-sector projects, skilled in solution design,
-          client analysis, and collaboration to align technology with business
-          goals. Passionate about leveraging cloud and emerging technologies to
-          drive innovation and efficiency.
+          I help organizations translate complex business needs into
+          well-designed systems, data models, and modern applications. With
+          experience across consulting, government systems, and software
+          engineering, I bridge business goals with technical execution.{" "}
         </p>
 
         <p className="text-base text-tertiary mb-6 font-sans">
-          Former Associate Assistant at PwC Indonesia with contributions to the
-          Ministry of Maritime Affairs and Fisheries, Haus! Indonesia, and more.
+          Driving Digital Transformation Through Scalable Technology Solutions
         </p>
 
         {/* 🔗 Buttons */}

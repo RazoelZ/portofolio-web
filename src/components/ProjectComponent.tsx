@@ -6,7 +6,7 @@ const ProjectComponent: React.FC = () => {
   return (
     <section
       id="projects"
-      className="relative py-28 px-6 md:px-16 max-w-6xl mx-auto"
+      className="min-h-screen px-6 md:px-16 pt-28 relative overflow-hidden"
     >
       {/* BACKGROUND ORBS */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -16,7 +16,9 @@ const ProjectComponent: React.FC = () => {
 
       {/* HEADER */}
       <div className="mb-14">
-        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">(04)</h2>
+        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
+          (04)
+        </h2>
         <h3 className="text-4xl italic font-display font-semibold text-primary mb-4">
           Projects
         </h3>
