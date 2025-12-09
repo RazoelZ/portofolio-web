@@ -39,7 +39,7 @@ const HeroComponent: React.FC = () => {
               words={[
                 "Dany",
                 "Razoel",
-                "a Front-End Developer",
+                "a Software Engineer",
                 "Consulting Enthusiast",
               ]}
               loop={true}
