@@ -6,8 +6,8 @@ import {
   Users,
   BadgeCheck,
   Brain,
-  Sparkles,
 } from "lucide-react";
+import { FiUser } from "react-icons/fi";
 
 const AboutMeComponent: React.FC = () => {
   return (
@@ -15,12 +15,6 @@ const AboutMeComponent: React.FC = () => {
       id="about"
       className="min-h-screen px-6 md:px-16 pt-28 relative overflow-hidden"
     >
-      {/* BACKGROUND ORBS */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute w-[420px] h-[420px] bg-blue-600/10 rounded-full blur-[150px] top-10 left-10"></div>
-        <div className="absolute w-[360px] h-[360px] bg-indigo-600/10 rounded-full blur-[160px] bottom-10 right-10"></div>
-      </div>
-
       <div className="max-w-6xl mx-auto">
         {/* Heading Section */}
         <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
@@ -28,8 +22,8 @@ const AboutMeComponent: React.FC = () => {
         </h2>
 
         <div className="flex items-center gap-2 mb-3">
-          <Sparkles className="text-blue-500 w-5 h-5" />
-          <h2 className="text-primary text-4xl font-display font-bold italic">
+          <FiUser className="text-blue-600 dark:text-blue-400 w-9 h-9" />
+          <h2 className="text-primary text-4xl font-display font-semibold italic">
             About Me
           </h2>
         </div>
@@ -85,11 +79,16 @@ const AboutMeComponent: React.FC = () => {
         </div>
 
         {/* Stats Section */}
+        {/* Stats Section */}
         <div
           className="
-            grid grid-cols-2 md:grid-cols-4 gap-8 
-            text-center text-sm font-medium text-secondary font-sans
-          "
+    grid 
+    grid-cols-1 
+    sm:grid-cols-2 
+    lg:grid-cols-4
+    gap-6 sm:gap-8
+    text-center text-sm font-medium text-secondary font-sans
+  "
         >
           {[
             {
@@ -122,12 +121,14 @@ const AboutMeComponent: React.FC = () => {
             <div
               key={i}
               className="
-                p-6 rounded-xl border border-gray-200 dark:border-zinc-800 
-                bg-white dark:bg-[#161616]
-                shadow-theme-lg hover:shadow-theme-xl
-                dark:hover:shadow-glow-blue
-                transition-all duration-300 hover:-translate-y-2
-              "
+        p-6 rounded-xl 
+        border border-gray-200 dark:border-zinc-800 
+        bg-white dark:bg-[#161616]
+        shadow-theme-lg hover:shadow-theme-xl
+        dark:hover:shadow-glow-blue
+        transition-all duration-300 
+        hover:-translate-y-2
+      "
             >
               {stat.icon}
               <p className="text-2xl font-display font-bold text-primary">

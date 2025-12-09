@@ -69,40 +69,37 @@ const CertificationComponent: React.FC = () => {
       id="certificates"
       className="min-h-screen px-6 md:px-16 pt-28 relative overflow-hidden"
     >
-      {/* Background Orbs */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute w-[350px] h-[350px] bg-blue-500/10 rounded-full blur-[150px] top-0 left-0"></div>
-        <div className="absolute w-[280px] h-[280px] bg-indigo-500/10 rounded-full blur-[150px] bottom-10 right-10"></div>
-      </div>
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="w-full mb-10">
+          <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
+            {`(0${6})`}
+          </h2>
 
-      {/* Header */}
-      <div className="w-full mb-10">
-        <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
-          {`(0${6})`}
-        </h2>
+          <div className="flex items-center gap-3 mb-4">
+            <Medal className="text-blue-600 dark:text-blue-400 w-7 h-7" />
+            <h2 className="text-4xl italic font-display font-semibold text-primary">
+              Certifications
+            </h2>
+          </div>
 
-        <div className="flex items-center gap-3 mb-4">
-          <Medal className="text-blue-600 dark:text-blue-400 w-7 h-7" />
-          <h3 className="text-4xl italic font-display font-semibold text-primary">
-            Certifications
-          </h3>
+          <p className="text-sm text-secondary border-t border-gray-300 dark:border-gray-700 pt-3 leading-relaxed font-sans">
+            A curated list of certifications showcasing continuous learning in
+            software engineering, cloud computing, business analysis, and IT
+            fundamentals — supporting my work in digital transformation and
+            modern system design.
+          </p>
         </div>
 
-        <p className="text-sm text-secondary border-t border-gray-300 dark:border-gray-700 pt-3 leading-relaxed max-w-3xl font-sans">
-          A curated collection of certifications representing my continuous
-          learning in software engineering, cloud computing, and IT.
-        </p>
-      </div>
+        {/* Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {previewCerts.map((cert, idx) => renderCertCard(cert, idx))}
 
-      {/* Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {previewCerts.map((cert, idx) => renderCertCard(cert, idx))}
-
-        {/* View All Card */}
-        {hasMore && (
-          <button
-            onClick={() => setShowDialog(true)}
-            className="
+          {/* View All Card */}
+          {hasMore && (
+            <button
+              onClick={() => setShowDialog(true)}
+              className="
               bg-white dark:bg-[#141414]/80 backdrop-blur-xl 
               border border-gray-200 dark:border-zinc-800 p-5 rounded-xl
               shadow-theme-lg dark:hover:shadow-glow-blue
@@ -111,15 +108,16 @@ const CertificationComponent: React.FC = () => {
               hover:-translate-y-2 hover:scale-[1.02]
               text-left
             "
-          >
-            <h4 className="text-primary font-display font-semibold text-md mb-1">
-              +{allCerts.length - 8} more certifications
-            </h4>
-            <p className="text-sm text-blue-600 dark:text-blue-400 underline animate-pulse">
-              Click to view all
-            </p>
-          </button>
-        )}
+            >
+              <h4 className="text-primary font-display font-semibold text-md mb-1">
+                +{allCerts.length - 8} more certifications
+              </h4>
+              <p className="text-sm text-blue-600 dark:text-blue-400 underline animate-pulse">
+                Click to view all
+              </p>
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Modal */}
