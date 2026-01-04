@@ -31,7 +31,7 @@ const FAQAccordion: React.FC = () => {
         {/* HEADER */}
         <div className="mb-14">
           <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
-            {`(0${7})`}
+            {`(0${8})`}
           </h2>
 
           <div className="flex items-center gap-3 mb-5">

@@ -15,6 +15,7 @@ import EducationComponent from "./components/EducationComponents";
 import CertificationComponent from "./components/CertificationComponent";
 import FAQAccordion from "./components/FAQAccordion";
 import Footer from "./components/FooterComponent";
+import GameComponent from "./components/GameComponent";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -102,6 +103,11 @@ function App() {
         <section id="education" className="scroll-mt-28">
           <EducationComponent />
           <CertificationComponent />
+        </section>
+
+        <section id="education" className="scroll-mt-28">
+          {/* games section */}
+          <GameComponent />
         </section>
 
         <section id="faq" className="scroll-mt-28 pb-32">
