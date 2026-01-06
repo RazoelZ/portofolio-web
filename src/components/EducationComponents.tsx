@@ -5,7 +5,7 @@ const EducationComponent: React.FC = () => {
   return (
     <section
       id="education"
-      className="min-h-screen px-6 md:px-16 pt-28 relative overflow-hidden"
+      className="scroll-mt-28 relative overflow-hidden md:mb-20"
     >
       {/* TITLE */}
       <div className="max-w-6xl mx-auto">

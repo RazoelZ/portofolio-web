@@ -17,10 +17,7 @@ const FAQAccordion: React.FC = () => {
   };
 
   return (
-    <section
-      id="faq"
-      className="min-h-screen px-6 md:px-16 pt-28 relative overflow-hidden"
-    >
+    <section id="faq" className="scroll-mt-20 relative overflow-hidden">
       {/* Subtle Background Glow */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute w-[350px] h-[350px] bg-blue-500/10 rounded-full blur-[150px] top-20 left-10"></div>
@@ -29,7 +26,7 @@ const FAQAccordion: React.FC = () => {
 
       <div className="max-w-6xl mx-auto">
         {/* HEADER */}
-        <div className="mb-14">
+        <div className="mb-10">
           <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
             {`(0${8})`}
           </h2>

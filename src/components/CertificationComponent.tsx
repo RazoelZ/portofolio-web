@@ -67,7 +67,7 @@ const CertificationComponent: React.FC = () => {
   return (
     <section
       id="certificates"
-      className="min-h-screen px-6 md:px-16 pt-28 relative overflow-hidden"
+      className="scroll-mt-28 relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}

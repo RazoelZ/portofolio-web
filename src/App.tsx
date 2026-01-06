@@ -16,6 +16,7 @@ import CertificationComponent from "./components/CertificationComponent";
 import FAQAccordion from "./components/FAQAccordion";
 import Footer from "./components/FooterComponent";
 import GameComponent from "./components/GameComponent";
+import BackgroundParticles from "./screens/BackgroundParticles";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -83,36 +84,20 @@ function App() {
         transition-colors duration-300
       "
     >
+      <BackgroundParticles />
+
       <Navbar />
 
       {/* Fade-in animation for all main content */}
-      <main className="flex flex-col gap-24 px-4 md:px-10 animate-fadeInSlow">
-        <section id="home" className="scroll-mt-28">
-          <HeroComponent />
-        </section>
-
-        <section id="about-me" className="scroll-mt-28">
-          <AboutMeComponent />
-        </section>
-
-        <section id="experiences" className="scroll-mt-28">
-          <ExperienceComponent />
-          <ProjectComponent />
-        </section>
-
-        <section id="education" className="scroll-mt-28">
-          <EducationComponent />
-          <CertificationComponent />
-        </section>
-
-        <section id="education" className="scroll-mt-28">
-          {/* games section */}
-          <GameComponent />
-        </section>
-
-        <section id="faq" className="scroll-mt-28 pb-32">
-          <FAQAccordion />
-        </section>
+      <main className="flex flex-col gap-20 px-4 md:px-10 animate-fadeInSlow">
+        <HeroComponent />
+        <AboutMeComponent />
+        <ExperienceComponent />
+        <ProjectComponent />
+        <EducationComponent />
+        <CertificationComponent />
+        <GameComponent />
+        <FAQAccordion />
       </main>
 
       <Footer />

@@ -13,7 +13,10 @@ const HeroComponent: React.FC = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between gap-10 px-6 text-primary mt-15 md:mt-0">
+    <section
+      id="home"
+      className="scroll-mt-28 min-h-screen flex flex-col md:flex-row items-center justify-between gap-10 px-6 text-primary mt-15 md:mt-0"
+    >
       {/* 👤 Profile Animation */}
       <div className="w-full md:w-1/2 flex justify-center">
         <Lottie animationData={heroAnimation} loop className="w-96 h-96" />

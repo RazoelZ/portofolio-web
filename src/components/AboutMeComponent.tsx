@@ -11,10 +11,7 @@ import { FiUser } from "react-icons/fi";
 
 const AboutMeComponent: React.FC = () => {
   return (
-    <section
-      id="about"
-      className="min-h-screen px-6 md:px-16 pt-28 relative overflow-hidden"
-    >
+    <section id="about-me" className="scroll-mt-22 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Heading Section */}
         <h2 className="text-sm text-tertiary mb-1 tracking-wider font-mono">
