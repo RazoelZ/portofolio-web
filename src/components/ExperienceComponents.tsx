@@ -17,7 +17,7 @@ const ExperienceComponent: React.FC = () => {
   });
 
   return (
-    <section className="scroll-mt-28 max-w-6xl mx-auto" id="experiences">
+    <section className="scroll-mt-28" id="experiences">
       {/* Header */}
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
