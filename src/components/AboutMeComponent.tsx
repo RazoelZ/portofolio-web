@@ -6,6 +6,7 @@ import {
   Users,
   BadgeCheck,
   Brain,
+  Award,
 } from "lucide-react";
 import { FiUser } from "react-icons/fi";
 
@@ -92,7 +93,7 @@ const AboutMeComponent: React.FC = () => {
               icon: (
                 <BadgeCheck className="mx-auto mb-3 text-blue-400 w-12 h-12" />
               ),
-              number: "1.5+",
+              number: "1.7+",
               label: "Years Experience",
             },
             {
@@ -106,13 +107,13 @@ const AboutMeComponent: React.FC = () => {
               icon: (
                 <Users className="mx-auto mb-3 text-yellow-400 w-12 h-12" />
               ),
-              number: "5+",
+              number: "6+",
               label: "Teams & Clients Served",
             },
             {
-              icon: <Code2 className="mx-auto mb-3 text-sky-400 w-12 h-12" />,
-              number: "1200+",
-              label: "Hours in Engineering & Consulting",
+              icon: <Award className="mx-auto mb-3 text-sky-400 w-12 h-12" />,
+              number: "20+",
+              label: "Certifications & Professional Training",
             },
           ].map((stat, i) => (
             <div

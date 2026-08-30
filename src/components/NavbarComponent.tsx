@@ -104,7 +104,7 @@ const Navbar: React.FC = () => {
         </ul>
 
         {/* CENTER LOGO */}
-        <div className="absolute left-1/2 -translate-x-1/2">
+        {/* <div className="absolute left-1/2 -translate-x-1/2">
           <img
             src="/icon.png"
             alt="Avatar"
@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
               hover:scale-110 transition
             "
           />
-        </div>
+        </div> */}
 
         {/* RIGHT SOCIAL + THEME - Desktop */}
         <div className="hidden md:flex items-center gap-6 text-2xl">

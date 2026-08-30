@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Lottie from "lottie-react";
-import heroAnimation from "../assets/hero-animation.json";
 import { Typewriter } from "react-simple-typewriter";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import PhotoFrame from "./ui/PhotoFrame";
 
 const HeroComponent: React.FC = () => {
   const [visitorName, setVisitorName] = useState<string | null>(null);
@@ -15,11 +14,11 @@ const HeroComponent: React.FC = () => {
   return (
     <section
       id="home"
-      className="scroll-mt-28 min-h-screen flex flex-col md:flex-row items-center justify-between gap-10 px-6 text-primary mt-15 md:mt-0"
+      className="scroll-mt-28 min-h-screen flex flex-col md:flex-row items-center gap-10 px-6 text-primary mt-36 md:mt-0 md:justify-between"
     >
-      {/* 👤 Profile Animation */}
+      {/* 👤 Profile Photo */}
       <div className="w-full md:w-1/2 flex justify-center">
-        <Lottie animationData={heroAnimation} loop className="w-96 h-96" />
+        <PhotoFrame src="/profile.png" alt="Muhammad Drajat Dany Darmawan" />
       </div>
 
       {/* 👋 Introduction Text */}
@@ -63,27 +62,61 @@ const HeroComponent: React.FC = () => {
 
         {/* 🔗 Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6">
+          {/* Download CV */}
           <a
-            onClick={() => {
-              window.open(
-                "https://drive.google.com/file/d/1ebqAw44iKqobdVQCDQrqy3zXwfVose_b/view?usp=drive_link",
-                "_blank",
-              );
-            }}
-            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg shadow-theme-lg hover:from-blue-700 hover:to-indigo-700 transition duration-300 ease-in-out font-medium font-sans"
+            href="https://drive.google.com/file/d/1ebqAw44iKqobdVQCDQrqy3zXwfVose_b/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              inline-flex items-center justify-center gap-2
+              px-6 py-3
+              rounded-lg
+              font-medium font-sans
+              bg-blue-600
+              text-white
+              border border-blue-600
+              hover:bg-blue-700
+              hover:border-blue-700
+              dark:bg-blue-500
+              dark:border-blue-500
+              dark:text-white
+              dark:hover:bg-blue-600
+              dark:hover:border-blue-600
+              shadow-theme-sm
+              hover:shadow-theme-md
+              transition-all duration-300 ease-in-out
+            "
           >
-            📄 Download CV
+            <span>📄</span>
+            <span>Download CV</span>
           </a>
+
+          {/* LinkedIn */}
           <a
-            onClick={() => {
-              window.open(
-                "https://www.linkedin.com/in/danydarmawan/",
-                "_blank",
-              );
-            }}
-            className="px-6 py-3 border border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out font-medium font-sans shadow-theme-sm"
+            href="https://www.linkedin.com/in/danydarmawan/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              inline-flex items-center justify-center gap-2
+              px-6 py-3
+              rounded-lg
+              font-medium font-sans
+              bg-white
+              text-blue-600
+              border border-blue-600
+              hover:bg-blue-50
+              dark:bg-gray-900
+              dark:text-blue-400
+              dark:border-blue-500
+              dark:hover:bg-gray-800
+              dark:hover:text-blue-300
+              shadow-theme-sm
+              hover:shadow-theme-md
+              transition-all duration-300 ease-in-out
+            "
           >
-            🤝 Let's Connect
+            <span>🤝</span>
+            <span>Let's Connect</span>
           </a>
         </div>
 
