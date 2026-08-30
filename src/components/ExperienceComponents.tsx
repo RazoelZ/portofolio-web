@@ -46,7 +46,7 @@ const ExperienceComponent: React.FC = () => {
             hidden md:flex
             absolute left-0 top-1/2 -translate-y-1/2
             z-10 p-3 rounded-2xl
-            bg-white dark:bg-[#161616]
+            bg-surface
             border border-gray-200 dark:border-zinc-800
             shadow-theme-lg hover:shadow-theme-xl dark:hover:shadow-glow-blue
             transition-all duration-300 group
@@ -62,7 +62,7 @@ const ExperienceComponent: React.FC = () => {
               <div key={index} className="keen-slider__slide px-1 md:px-4">
                 <div
                   className="
-                  bg-white dark:bg-[#141414]
+                  bg-surface
                   rounded-2xl p-6 md:p-8
                   border border-gray-200 dark:border-zinc-800
                   shadow-theme-lg hover:shadow-theme-xl
@@ -111,7 +111,7 @@ const ExperienceComponent: React.FC = () => {
             hidden md:flex
             absolute right-0 top-1/2 -translate-y-1/2
             z-10 p-3 rounded-2xl
-            bg-white dark:bg-[#161616]
+            bg-surface
             border border-gray-200 dark:border-zinc-800
             shadow-theme-lg hover:shadow-theme-xl dark:hover:shadow-glow-blue
             transition-all duration-300 group

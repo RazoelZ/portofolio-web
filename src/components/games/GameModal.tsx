@@ -26,7 +26,7 @@ export default function GameModal({
         className="
           relative w-full max-w-3xl 
           rounded-2xl p-6
-          bg-white dark:bg-[#161616]
+          bg-surface
           border border-gray-200 dark:border-zinc-800
           shadow-theme-xl
         "

@@ -58,7 +58,7 @@ const AboutMeComponent: React.FC = () => {
               key={i}
               className="
                 p-6 rounded-xl border border-gray-200 dark:border-zinc-800 
-                bg-white dark:bg-[#161616] backdrop-blur-xl
+                bg-surface
                 shadow-theme-lg hover:shadow-theme-xl
                 dark:shadow-theme-lg dark:hover:shadow-glow-blue
                 transition-all duration-300 hover:-translate-y-2
@@ -120,7 +120,7 @@ const AboutMeComponent: React.FC = () => {
               className="
         p-6 rounded-xl 
         border border-gray-200 dark:border-zinc-800 
-        bg-white dark:bg-[#161616]
+        bg-surface
         shadow-theme-lg hover:shadow-theme-xl
         dark:hover:shadow-glow-blue
         transition-all duration-300 

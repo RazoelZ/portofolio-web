@@ -25,9 +25,9 @@ const DialogComponent: React.FC<DialogProps> = ({
     >
       <div
         className="
-          bg-white dark:bg-[#1b1b1b]/95 backdrop-blur-xl
+          bg-white dark:bg-surface backdrop-blur-xl
           border border-gray-300 dark:border-zinc-700 rounded-xl
-          shadow-xl dark:shadow-[0_0_50px_-10px_rgba(56,189,248,0.4)]
+          shadow-xl dark:shadow-[0_0_50px_-10px_rgba(214,172,92,0.25)]
           max-w-5xl w-full mx-4 p-6 text-gray-900 dark:text-white
           animate-scaleIn
         "

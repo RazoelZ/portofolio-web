@@ -38,7 +38,7 @@ const GameComponent: React.FC = () => {
           {/* Whack-a-Mole */}
           <div
             onClick={() => setOpenGame("mole")}
-            className="cursor-pointer p-6 rounded-xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-[#161616]
+            className="cursor-pointer p-6 rounded-xl border border-gray-200 dark:border-zinc-800 bg-surface
             shadow-theme-lg hover:shadow-theme-xl dark:hover:shadow-glow-blue transition-all duration-300 hover:-translate-y-2"
           >
             <Gamepad2 className="text-green-400 w-8 h-8 mb-4" />
@@ -53,7 +53,7 @@ const GameComponent: React.FC = () => {
           {/* Memory Match */}
           <div
             onClick={() => setOpenGame("memory")}
-            className="cursor-pointer p-6 rounded-xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-[#161616]
+            className="cursor-pointer p-6 rounded-xl border border-gray-200 dark:border-zinc-800 bg-surface
             shadow-theme-lg hover:shadow-theme-xl dark:hover:shadow-glow-purple transition-all duration-300 hover:-translate-y-2"
           >
             <Gamepad2 className="text-purple-400 w-8 h-8 mb-4" />
@@ -68,7 +68,7 @@ const GameComponent: React.FC = () => {
           {/* Quote Card */}
           <div
             onClick={() => setOpenGame("quote")}
-            className="cursor-pointer p-6 rounded-xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-[#161616]
+            className="cursor-pointer p-6 rounded-xl border border-gray-200 dark:border-zinc-800 bg-surface
             shadow-theme-lg hover:shadow-theme-xl dark:hover:shadow-glow-yellow transition-all duration-300 hover:-translate-y-2"
           >
             <MessageCircle className="text-yellow-400 w-8 h-8 mb-4" />

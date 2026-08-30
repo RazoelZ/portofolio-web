@@ -1,9 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import { FolderKanban } from "lucide-react";
 import { projectsData } from "../Data/ProjectData";
 import { FiTrello } from "react-icons/fi";
+import DialogComponent from "./DialogComponent";
 
 const ProjectComponent: React.FC = () => {
+  const [showDialog, setShowDialog] = useState(false);
+  const previewProjects = projectsData.slice(0, 8);
+  const hasMore = projectsData.length > 8;
+
+  const renderProjectCard = (
+    project: (typeof projectsData)[number],
+    key: number,
+  ) => (
+    <div
+      key={key}
+      className="
+        bg-surface 
+        p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 
+        shadow-theme-lg dark:hover:shadow-glow-blue
+        hover:shadow-theme-xl
+        hover:-translate-y-2 hover:scale-[1.02]
+        transition-all duration-300
+        flex flex-col
+      "
+    >
+      {/* Top Content (icon + title + description) */}
+      <div className="flex-1">
+        {/* Icon */}
+        <div className="mb-4">
+          <FolderKanban className="text-blue-400 w-8 h-8" />
+        </div>
+
+        {/* Title */}
+        <h4 className="text-lg font-display font-semibold text-blue-600 dark:text-blue-300 mb-2">
+          {project.title}
+        </h4>
+
+        {/* Description */}
+        <p className=" mb-4 text-xs leading-relaxed font-sans">
+          {project.description}
+        </p>
+      </div>
+
+      {/* Bottom Section (Stack) */}
+      <div className="flex flex-wrap gap-2 mt-4">
+        {project.stack.map((tech, i) => (
+          <span
+            key={i}
+            className="
+              bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 
+              px-3 py-1 text-xs rounded-full 
+              border border-blue-300 dark:border-blue-400/20
+            "
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <section id="projects" className="scroll-mt-20 relative overflow-hidden">
       {/* HEADER */}
@@ -26,56 +83,47 @@ const ProjectComponent: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {projectsData.map((project, index) => (
-            <div
-              key={index}
+          {previewProjects.map((project, index) =>
+            renderProjectCard(project, index),
+          )}
+
+          {/* View All Card */}
+          {hasMore && (
+            <button
+              onClick={() => setShowDialog(true)}
               className="
-        bg-white dark:bg-[#151515]/80 backdrop-blur-xl 
-        p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 
-        shadow-theme-lg dark:hover:shadow-glow-blue
-        hover:shadow-theme-xl
-        hover:-translate-y-2 hover:scale-[1.02]
-        transition-all duration-300
-        flex flex-col
-      "
+                bg-surface
+                border border-gray-200 dark:border-zinc-800 p-5 rounded-2xl
+                shadow-theme-lg dark:hover:shadow-glow-blue
+                hover:shadow-theme-xl
+                hover:-translate-y-2 hover:scale-[1.02]
+                transition-all duration-300
+                text-left flex flex-col justify-center
+              "
             >
-              {/* Top Content (icon + title + description) */}
-              <div className="flex-1">
-                {/* Icon */}
-                <div className="mb-4">
-                  <FolderKanban className="text-blue-400 w-8 h-8" />
-                </div>
-
-                {/* Title */}
-                <h4 className="text-lg font-display font-semibold text-blue-600 dark:text-blue-300 mb-2">
-                  {project.title}
-                </h4>
-
-                {/* Description */}
-                <p className=" mb-4 text-xs leading-relaxed font-sans">
-                  {project.description}
-                </p>
-              </div>
-
-              {/* Bottom Section (Stack) */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                {project.stack.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="
-              bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 
-              px-3 py-1 text-xs rounded-full 
-              border border-blue-300 dark:border-blue-400/20
-            "
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+              <h4 className="text-primary font-display font-semibold text-md mb-1">
+                +{projectsData.length - 8} more projects
+              </h4>
+              <p className="text-sm text-blue-600 dark:text-blue-400 underline animate-pulse">
+                Click to view all
+              </p>
+            </button>
+          )}
         </div>
       </div>
+
+      {/* Modal */}
+      <DialogComponent
+        isOpen={showDialog}
+        onClose={() => setShowDialog(false)}
+        title="More Projects"
+      >
+        <div className="grid sm:grid-cols-2 gap-4 px-4">
+          {projectsData
+            .slice(8)
+            .map((project, i) => renderProjectCard(project, i))}
+        </div>
+      </DialogComponent>
     </section>
   );
 };

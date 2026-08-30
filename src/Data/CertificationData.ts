@@ -133,12 +133,35 @@ export const allCerts = [
     link: "https://coursera.org/verify/PVQYHJYASPPV",
   },
 
+  // 🟦 Microsoft Learn — 2025
+  {
+    id: "mslearn-2025-1",
+    title: "Introduction to AI in Azure",
+    badge: "Microsoft Learn",
+    year: 2025,
+    link: "",
+  },
+  {
+    id: "mslearn-2025-2",
+    title: "Get Started with Microsoft Data Analytics",
+    badge: "Microsoft Learn",
+    year: 2025,
+    link: "",
+  },
+  {
+    id: "msworld-2025-1",
+    title: "Working in a Digital World: Professional Skills",
+    badge: "Microsoft",
+    year: 2025,
+    link: "",
+  },
+
   // 🟧 Misc — Oracle, TEDx, etc.
   {
-    id: "oracle-2025-1",
-    title: "Oracle (Unspecified Certificate Title)",
+    id: "oracle-2023-1",
+    title: "Primavera P6 Professional Fundamentals",
     badge: "Oracle",
-    year: 2025,
+    year: 2023,
     link: "",
   },
   {

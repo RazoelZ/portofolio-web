@@ -1,41 +1,63 @@
 import React from "react";
+import { organizationsData } from "../Data/OrganizationData";
+import { Landmark } from "lucide-react";
 
 const OrganizationComponent: React.FC = () => {
-  const orgs = [
-    {
-      name: "HIMATIF (Informatics Student Association)",
-      date: "2022 – 2023",
-      description:
-        "Served as Creative Media Staff. Designed event posters, managed website updates, and collaborated with cross-functional teams for event promotions.",
-    },
-    {
-      name: "Bangkit Academy 2023 – Web Development Path",
-      date: "by Google, GoTo, & Traveloka",
-      description:
-        "Completed a 6-month intensive program focused on full-stack development, cloud computing, and soft skill training.",
-    },
-  ];
-
   return (
-    <div>
-      <h2 className="relative text-3xl font-bold mb-10 inline-flex items-center gap-2 text-gray-900 dark:text-white after:content-[''] after:absolute after:left-0 after:-bottom-2 after:h-[3px] after:w-0 after:bg-purple-500 dark:after:bg-purple-400 after:transition-all after:duration-300 hover:after:w-full">
-        <span className="text-4xl">🏢</span> Organization
-      </h2>
-      <div className="space-y-6">
-        {orgs.map((org, index) => (
-          <div
-            key={index}
-            className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-[#1f1f1f] dark:to-[#2a2a2a] p-6 rounded-2xl border border-gray-300 dark:border-zinc-800 shadow-md"
-          >
-            <h3 className="text-xl font-semibold text-purple-600 dark:text-purple-400 mb-1">
-              {org.name}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{org.date}</p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">{org.description}</p>
+    <section id="leadership" className="scroll-mt-28 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="eyebrow mb-1">{`(06)`}</h2>
+
+          <div className="flex items-center gap-3 mb-4">
+            <Landmark className="text-accent w-9 h-9" />
+            <h2 className="text-4xl italic font-serif-display font-semibold text-primary">
+              Leadership &amp; Development
+            </h2>
           </div>
-        ))}
+
+          <p className="text-sm md:text-lg text-secondary border-t border-line pt-3 leading-relaxed font-sans">
+            Beyond client delivery — organizational and community roles where I
+            led teams, built processes, and represented institutions.
+          </p>
+        </div>
+
+        <div className="space-y-6">
+          {organizationsData.map((org, index) => (
+            <div
+              key={index}
+              className="
+                border border-line p-6 md:p-8
+                bg-white dark:bg-[#0f1420]
+                hover:border-accent/60 transition-colors duration-300
+              "
+            >
+              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-4 gap-1">
+                <h3 className="text-lg md:text-xl font-serif-display font-semibold text-primary leading-tight">
+                  {org.role}
+                  <span className="text-secondary font-sans font-normal">
+                    {" "}
+                    — {org.org}
+                  </span>
+                </h3>
+                <span className="eyebrow text-xs shrink-0">{org.period}</span>
+              </div>
+
+              <ul className="space-y-2.5 text-secondary text-sm md:text-base leading-relaxed pl-5 list-disc font-sans">
+                {org.bullets.map((item, i) => (
+                  <li
+                    key={i}
+                    className="hover:text-accent transition-colors duration-200"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

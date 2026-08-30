@@ -23,7 +23,7 @@ function App() {
   const [visitorName, setVisitorName] = useState<string>("");
 
   const [splashType, setSplashType] = useState<"new" | "returning" | null>(
-    null
+    null,
   );
 
   /* 🔹 Load once on app start */
@@ -78,9 +78,9 @@ function App() {
     <div
       className="
         min-h-screen relative
-        text-black dark:text-white
+        text-primary
         bg-white dark:bg-gradient-to-br
-        dark:from-[#0b0b0f] dark:via-[#0d0d12] dark:to-[#0c0b0f]
+        dark:from-[var(--color-bg-primary)] dark:via-[#0d101a] dark:to-[var(--color-bg-primary)]
         transition-colors duration-300
       "
     >

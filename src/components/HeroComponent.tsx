@@ -66,8 +66,8 @@ const HeroComponent: React.FC = () => {
           <a
             onClick={() => {
               window.open(
-                "https://drive.google.com/file/d/1bThlz3xfUrXcIukQ6EXQ3B3Z-ZOI6qAP/view?usp=sharing",
-                "_blank"
+                "https://drive.google.com/file/d/1ebqAw44iKqobdVQCDQrqy3zXwfVose_b/view?usp=drive_link",
+                "_blank",
               );
             }}
             className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg shadow-theme-lg hover:from-blue-700 hover:to-indigo-700 transition duration-300 ease-in-out font-medium font-sans"
@@ -78,7 +78,7 @@ const HeroComponent: React.FC = () => {
             onClick={() => {
               window.open(
                 "https://www.linkedin.com/in/danydarmawan/",
-                "_blank"
+                "_blank",
               );
             }}
             className="px-6 py-3 border border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out font-medium font-sans shadow-theme-sm"

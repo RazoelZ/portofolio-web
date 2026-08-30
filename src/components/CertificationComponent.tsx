@@ -12,7 +12,7 @@ const CertificationComponent: React.FC = () => {
     <div
       key={key}
       className="
-        bg-white dark:bg-[#141414]/80 backdrop-blur-xl 
+        bg-surface 
         p-5 rounded-xl border border-gray-200 dark:border-zinc-800
         shadow-theme-lg dark:hover:shadow-glow-blue
         hover:shadow-theme-xl
@@ -100,7 +100,7 @@ const CertificationComponent: React.FC = () => {
             <button
               onClick={() => setShowDialog(true)}
               className="
-              bg-white dark:bg-[#141414]/80 backdrop-blur-xl 
+              bg-surface 
               border border-gray-200 dark:border-zinc-800 p-5 rounded-xl
               shadow-theme-lg dark:hover:shadow-glow-blue
               hover:shadow-theme-xl
@@ -124,10 +124,10 @@ const CertificationComponent: React.FC = () => {
       <DialogComponent
         isOpen={showDialog}
         onClose={() => setShowDialog(false)}
-        title="All Certifications"
+        title="More Certifications"
       >
         <div className="grid sm:grid-cols-2 gap-4 px-4">
-          {allCerts.map((cert, i) => renderCertCard(cert, i))}
+          {allCerts.slice(8).map((cert, i) => renderCertCard(cert, i))}
         </div>
       </DialogComponent>
     </section>

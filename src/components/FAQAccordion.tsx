@@ -56,7 +56,7 @@ const FAQAccordion: React.FC = () => {
                 key={index}
                 className="
                   relative group
-                  bg-white dark:bg-[#151515]/80 backdrop-blur-xl 
+                  bg-surface 
                   border border-gray-200 dark:border-zinc-800
                   rounded-xl shadow-theme-lg
                   hover:shadow-theme-xl dark:hover:shadow-glow-blue

@@ -1,9 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTheme } from "../Hooks/useTheme";
 
 const BackgroundParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const { theme } = useTheme();
+  const themeRef = useRef(theme);
+
+  /* Keep the animation loop reading the latest theme without restarting it */
+  useEffect(() => {
+    themeRef.current = theme;
+  }, [theme]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -28,8 +36,17 @@ const BackgroundParticles = () => {
       opacity: Math.random() * 0.4 + 0.15,
     }));
 
+    let frameId: number;
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Light mode -> black dots, Dark mode -> white dots.
+      const isDark = themeRef.current === "dark";
+      const rgb = isDark ? "255, 255, 255" : "15, 23, 42";
+      const glow = isDark
+        ? "rgba(214, 172, 92, 0.35)"
+        : "rgba(15, 23, 42, 0.15)";
 
       particles.forEach((p) => {
         p.y -= p.speedY;
@@ -37,18 +54,21 @@ const BackgroundParticles = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(120, 160, 255, ${p.opacity})`;
-        ctx.shadowColor = "rgba(120,160,255,0.6)";
+        ctx.fillStyle = `rgba(${rgb}, ${p.opacity})`;
+        ctx.shadowColor = glow;
         ctx.shadowBlur = 8;
         ctx.fill();
       });
 
-      requestAnimationFrame(animate);
+      frameId = requestAnimationFrame(animate);
     };
 
     animate();
 
-    return () => window.removeEventListener("resize", resize);
+    return () => {
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(frameId);
+    };
   }, []);
 
   return (

@@ -35,7 +35,7 @@ const EducationComponent: React.FC = () => {
         {/* INFORMATION BOX */}
         <div
           className="
-          bg-white dark:bg-[#151515]/80 backdrop-blur-xl
+          bg-surface
           border border-gray-200 dark:border-zinc-800 rounded-2xl
           shadow-theme-lg dark:hover:shadow-glow-blue
           hover:shadow-theme-xl
