@@ -84,10 +84,12 @@ const CertificationComponent: React.FC = () => {
           </div>
 
           <p className="text-sm text-secondary border-t border-gray-300 dark:border-gray-700 pt-3 leading-relaxed font-sans">
-            A curated list of certifications showcasing continuous learning in
-            software engineering, cloud computing, business analysis, and IT
-            fundamentals — supporting my work in digital transformation and
-            modern system design.
+            A curated collection of certifications reflecting continuous
+            learning across software engineering, cloud computing, business
+            analysis, and IT fundamentals. These credentials strengthen my
+            technical and analytical capabilities while supporting my
+            contribution to digital transformation, technology governance, and
+            modern system development.
           </p>
         </div>
 

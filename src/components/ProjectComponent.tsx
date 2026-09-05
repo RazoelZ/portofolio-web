@@ -76,9 +76,10 @@ const ProjectComponent: React.FC = () => {
             </h2>
           </div>
           <p className="text-sm text-secondary border-t border-gray-300 dark:border-gray-700 pt-3 leading-relaxed font-sans">
-            A curated selection of work across production systems, company
-            profiles, and mobile apps — each built using modern frameworks and
-            reliable engineering best practices.
+            A selection of projects spanning production systems, corporate
+            platforms, and mobile applications, built with modern technologies
+            and a strong focus on scalability, reliability, and practical
+            engineering principles.
           </p>
         </div>
 

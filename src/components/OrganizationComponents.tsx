@@ -17,8 +17,10 @@ const OrganizationComponent: React.FC = () => {
           </div>
 
           <p className="text-sm md:text-lg text-secondary border-t border-line pt-3 leading-relaxed font-sans">
-            Beyond client delivery — organizational and community roles where I
-            led teams, built processes, and represented institutions.
+            Beyond my professional work, I have also taken on organizational and
+            community roles that strengthened my experience in leading teams,
+            improving processes, coordinating initiatives, and representing
+            institutions in various settings.
           </p>
         </div>
 

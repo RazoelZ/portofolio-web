@@ -14,19 +14,19 @@ export const projectsData = [
   {
     title: "Enterprise Solution Design (TOGAF) — PT Pelabuhan Indonesia",
     description:
-      "Supported enterprise solution design for PT Pelabuhan Indonesia (Persero) using the TOGAF framework, analyzing business requirements and aligning technology solutions with business objectives — contributing to a 15% improvement in system consistency.",
+      "Supported enterprise solution design for PT Pelabuhan Indonesia (Persero) using the TOGAF framework by analyzing business requirements, assessing technology needs, and aligning proposed solutions with business objectives. This work contributed to improved system consistency and stronger alignment between business and technology.",
     stack: ["TOGAF", "Enterprise Architecture", "PwC Indonesia"],
   },
   {
     title: "Salesforce CRM Transformation — Bank BRI",
     description:
-      "Contributed to a Salesforce CRM transformation project by analyzing client data, designing logical data models, and preparing technical deliverables — supporting a 4–5% increase in sales and marketing revenue.",
+      "Contributed to a Salesforce CRM transformation project by analyzing client data, designing logical data models, and preparing technical deliverables to support business and system requirements. The project contributed to improved sales and marketing performance, with an estimated 4–5% increase in related revenue.",
     stack: ["Salesforce", "Data Modeling", "PwC Indonesia"],
   },
   {
     title: "Project Coordination — Bank Indonesia Data Center",
     description:
-      "Coordinated project activities for the Bank Indonesia Data Center, managing vendor collaboration, project documentation, and delivery tracking — achieving 90% on-time project delivery.",
+      "Coordinated project activities for the Bank Indonesia Data Center by managing vendor collaboration, project documentation, and delivery tracking. These efforts supported efficient project execution and contributed to achieving a 90% on-time delivery rate.",
     stack: ["Vendor Management", "Project Coordination", "PwC Indonesia"],
   },
   {

@@ -39,10 +39,10 @@ const FAQAccordion: React.FC = () => {
           </div>
 
           <p className="text-sm text-secondary border-t border-gray-300 dark:border-gray-700 pt-3 leading-relaxed font-sans">
-            These are the questions I most often receive from recruiters,
-            clients, and collaborators — designed to give you a clearer
-            understanding of how I work, what I value, and the capabilities I
-            bring to each project.
+            These are some of the questions I most often receive from
+            recruiters, clients, and collaborators. They offer a closer look at
+            how I approach my work, the principles I value, and the skills and
+            experience I bring to each project.
           </p>
         </div>
 

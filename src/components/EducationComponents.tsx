@@ -55,7 +55,7 @@ const EducationComponent: React.FC = () => {
 
           {/* University + GPA */}
           <p className="text-sm text-secondary mb-4 font-sans">
-            Diponegoro University (UNDIP) — GPA:{" "}
+            Diponegoro University (UNDIP) with GPA:{" "}
             <span className="text-blue-600 dark:text-blue-400 font-semibold">
               3.80 / 4.00 (Magna Cum Laude)
             </span>

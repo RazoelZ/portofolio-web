@@ -17,24 +17,15 @@ const SIZE_STYLES: Record<PhotoFrameSize, string> = {
   lg: "w-80 h-80 sm:w-[26rem] sm:h-[26rem]",
 };
 
-/**
- * A modern, framed photo slot for the Hero section — sized so it can be
- * reused anywhere else a profile photo is needed (About card, footer, etc.)
- * via the `size` prop.
- *
- * If `src` fails to load (or isn't provided yet), this renders a tidy
- * placeholder instead of a broken image, so the layout looks finished even
- * before a real photo exists. Drop a file at `public/profile.jpg` (or any
- * path passed via `src`) and it appears automatically — no code changes
- * needed.
- */
 const PhotoFrame: React.FC<PhotoFrameProps> = ({
   src = "/profile.png",
   alt = "Profile photo",
   size = "md",
   className = "",
 }) => {
-  const [imgFailed, setImgFailed] = useState(false);
+  const [status, setStatus] = useState<"loading" | "loaded" | "failed">(
+    "loading",
+  );
 
   return (
     <div className={`relative ${SIZE_STYLES[size]} ${className}`}>
@@ -48,15 +39,23 @@ const PhotoFrame: React.FC<PhotoFrameProps> = ({
           transition-shadow duration-300
         "
       >
-        {!imgFailed ? (
-          <img
-            src={src}
-            alt={alt}
-            onError={() => setImgFailed(true)}
-            className="w-full h-full object-cover object-[center_30%]"
-          />
-        ) : (
+        {status === "failed" ? (
           <PhotoPlaceholder path={src} />
+        ) : (
+          <>
+            {status === "loading" && <PhotoSkeleton />}
+            <img
+              src={src}
+              alt={alt}
+              onLoad={() => setStatus("loaded")}
+              onError={() => setStatus("failed")}
+              className={`
+                w-full h-full object-cover object-[center_30%]
+                transition-opacity duration-500
+                ${status === "loaded" ? "opacity-100" : "opacity-0"}
+              `}
+            />
+          </>
         )}
       </div>
 
@@ -75,6 +74,26 @@ const PhotoGlow: React.FC = () => (
       blur-3xl -z-10
     "
   />
+);
+
+/** Skeleton + spinner shown over the frame while the photo is loading. */
+const PhotoSkeleton: React.FC = () => (
+  <div
+    aria-hidden
+    className="
+      absolute inset-0 flex items-center justify-center
+      bg-gray-100 dark:bg-white/5
+      animate-pulse
+    "
+  >
+    <span
+      className="
+        w-9 h-9 rounded-full border-2
+        border-blue-400/30 border-t-blue-500 dark:border-t-blue-400
+        animate-spin
+      "
+    />
+  </div>
 );
 
 /** Shown in place of the photo until a real file exists at `path`. */

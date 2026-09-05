@@ -103,19 +103,6 @@ const Navbar: React.FC = () => {
           ))}
         </ul>
 
-        {/* CENTER LOGO */}
-        {/* <div className="absolute left-1/2 -translate-x-1/2">
-          <img
-            src="/icon.png"
-            alt="Avatar"
-            className="
-              w-10 h-10 rounded-full object-cover
-              border border-gray-300 dark:border-white/20 shadow-lg
-              hover:scale-110 transition
-            "
-          />
-        </div> */}
-
         {/* RIGHT SOCIAL + THEME - Desktop */}
         <div className="hidden md:flex items-center gap-6 text-2xl">
           {socialItems.map(({ name, icon, href }) => (
@@ -158,9 +145,9 @@ const Navbar: React.FC = () => {
             "
           >
             {theme === "light" ? (
-              <FiMoon size={20} />
+              <FiMoon size={20} name="Dark Mode" />
             ) : (
-              <FiSun size={20} className="text-yellow-400" />
+              <FiSun size={20} className="text-yellow-400" name="Light Mode" />
             )}
           </button>
         </div>

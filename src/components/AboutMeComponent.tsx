@@ -28,10 +28,12 @@ const AboutMeComponent: React.FC = () => {
 
         <p className="text-sm text-gray-600 dark:text-gray-400 border-t border-gray-300 dark:border-gray-700 pt-3 mb-12 leading-relaxed font-sans">
           I specialize in bridging the gap between <strong>business</strong> and{" "}
-          <strong>technology</strong> — delivering solutions across consulting,
-          government systems, and software engineering. My experience allows me
-          to understand client needs, design scalable architectures, and develop
-          modern applications that drive measurable impact.
+          <strong>technology</strong>, with experience across technology
+          consulting, digital transformation, governance, and software
+          engineering. My background enables me to translate business needs into
+          practical technology solutions, design scalable systems, and
+          contribute to modern applications and technology initiatives that
+          deliver meaningful business impact.
         </p>
 
         {/* Skills Cards */}

@@ -24,7 +24,7 @@ export const experiencesData = [
     company: "Ministry of Maritime Affairs and Fisheries of Indonesia",
     period: "Sep 2024 – Jan 2025",
     bullets: [
-      "Developed the front-end for 2 of 8 system modules — BKP (Fishing Vessel Book) and SIPI & SIKPI (Fishing and Fishing Transport Vessel Permits) — supporting digital vessel licensing, verification, and validation processes.",
+      "Developed the front-end for two of eight system modules: BKP (Fishing Vessel Book) and SIPI & SIKPI (Fishing and Fishing Transport Vessel Permits). The modules support digital vessel licensing, verification, and validation processes",
       "Conducted requirement analysis and stakeholder discussions for 2 core licensing modules, translating operational needs into system features that improved the efficiency and clarity of permit management workflows.",
       "Prepared system documentation and performed functional validation for the developed modules, supporting regulatory compliance, data accuracy, and reliable implementation of the government licensing system.",
     ],
